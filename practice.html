@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3HDFFBT6S7');
+</script>
+
+<!-- Hotjar Tracking Code for myStatisticClass -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6404067,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rk0vdjy4eg");
+</script>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice: Systems of Linear Equations & Matrices</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        MathJax = { 
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            startup: { typeset: true }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .math-scroll { overflow-x: auto; padding-bottom: 10px; }
+        
+        /* Custom radio button styling */
+        .opt-label { cursor: pointer; transition: all 0.2s ease; }
+        .opt-label input[type="radio"] { accent-color: #2563eb; width: 1.2rem; height: 1.2rem; margin-right: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-700 text-white p-5 shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/20 p-2 rounded-lg backdrop-blur-sm hidden sm:block">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">The Algebra 101 <span class="text-blue-200">Learning Hub</span></h1>
+                    <p class="text-xs sm:text-sm text-blue-100 mt-0.5 opacity-90">Practice Assessment 1</p>
+                </div>
+            </div>
+            <div id="progress-container" class="hidden text-sm font-bold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full shadow-inner border border-white/10">
+                Step <span id="current-step">1</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full p-4 sm:p-6 lg:p-8 flex justify-center">
+        
+        <div class="w-full max-w-4xl" id="quiz-wrapper">
+
+            <section id="step-0" class="fade-in w-full">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                    
+                    <div class="bg-blue-50 border-b border-blue-100 p-8 sm:p-10 text-center">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-blue-900 tracking-tight">Practice Assessment 1</h2>
+                        <p class="text-blue-700 mt-3 font-medium text-lg">Systems of Linear Equations & Matrices</p>
+                    </div>
+
+                    <div class="p-8 sm:p-10 space-y-8">
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">9</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Questions</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">1</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Sections</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">MCQ</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Format</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">Auto</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Grading</span>
+                            </div>
+                        </div>
+
+
+                        
+                        <hr class="border-gray-200">
+
+                        <div class="max-w-md mx-auto pt-2">
+                            <label for="email" class="block text-center text-sm font-bold text-gray-800 mb-3">Enter your Gmail to unlock the assessment:</label>
+                            
+                            <input type="email" id="email" name="email" placeholder="student@gmail.com" 
+                                onkeydown="if(event.key === 'Enter'){ event.preventDefault(); startQuiz(); }"
+                                class="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 transition shadow-sm mb-4 text-center text-lg placeholder-gray-400 outline-none">
+                            
+                            <button type="button" onclick="startQuiz()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition shadow-lg transform active:scale-95 text-lg flex justify-center items-center gap-2">
+                                Begin Practice Assessment <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="step-1" class="hidden fade-in space-y-6 w-full">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-900">Part 1: Linear Systems & Row Operations</h3>
+                    <p class="text-blue-700 text-sm mt-1">Answer the following 9 questions based on linear equations and basic matrix structures.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">1. Solve the following system:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $2x + y = 5$ <br> $3x - 2y = 8$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q1" value="a">$x = 7/18, y = 1/7$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q1" value="b">$x = 2, y = 1$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q1" value="c">$x = 18/7, y = -1/7$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q1" value="d">$x = -18/7, y = 1/7$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">2. Solve the following system:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $4x - 2y = 10$ <br> $2x + 3y = 1$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q2" value="a">$x = 5, y = 2$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q2" value="b">$x = \frac{7}{6}y + \frac{19}{6}$ (y is free)</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q2" value="c">$x = 2, y = -1$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q2" value="d">$x = 10, y = 0$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">3. Solve the following system:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $3x - y = 7$ <br> $2x + 4y = 2$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q3" value="a">$x = -15/7, y = -38/7$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q3" value="b">$x = 7/15, y = 7/38$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q3" value="c">$x = 3, y = 2$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q3" value="d">$x = 15/7, y = 38/7$</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-300 border-t-4 border-t-blue-500 space-y-8">
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 text-center shadow-inner">
+                        <p class="text-sm font-bold uppercase tracking-wider text-blue-800 mb-2">Reference Matrix for Questions 4-9</p>
+                        <div class="math-scroll text-lg">
+                            $$ A = \begin{bmatrix} 3 & 0 & -1 \\ 2 & 4 & -2 \\ 6 & 1 & 1 \end{bmatrix} $$
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">4. What is the order (size) of matrix A?</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q4" value="a"><br>$2 \times 3$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q4" value="b"><br>$3 \times 2$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q4" value="c"><br>$3 \times 3$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q4" value="d"><br>$2 \times 2$</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">5. What is the value of element $a_{23}$ in matrix A?</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q5" value="a"><br>4</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q5" value="b"><br>7</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q5" value="c"><br>0</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q5" value="d"><br>6</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">6. What is the main diagonal of matrix A?</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q6" value="a">3, 0, -1</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q6" value="b">3, 4, 1</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q6" value="c">0, 4, 1</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q6" value="d">3, 2, 1</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">7. Find the transpose of matrix A ($A^T$).</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q7" value="a"><br>$$ \begin{bmatrix} 3 & 2 & 6 \\ 0 & 4 & 1 \\ -1 & -2 & 1 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q7" value="b"><br>$$ \begin{bmatrix} 3 & -1 & 2 \\ 0 & 4 & 7 \\ -2 & 6 & 1 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q7" value="c"><br>$$ \begin{bmatrix} 3 & 0 & 2 \\ -1 & 4 & 7 \\ -2 & 6 & 1 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="p1q7" value="d"><br>$$ \begin{bmatrix} -2 & 6 & 1 \\ 0 & 4 & 7 \\ 3 & -1 & 2 \end{bmatrix} $$</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">8. Which are the first row vector and first column vector of matrix A?</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q8" value="a">Row 1: (3, 0, -1) and Column 1: (3, 2, 6)</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q8" value="b">Row 1: (3, -1, 2) and Column 1: (3, 0, -2)</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q8" value="c">Row 1: (3, -1, 2) and Column 1: (2, 7, 1)</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q8" value="d">Row 1: (3, -1, 2) and Column 1: (3, -1, 2)</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">9. What type of matrix is A?</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q9" value="a">Rectangular</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q9" value="b">Identity</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q9" value="c">Square</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="p1q9" value="d">Zero</label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="flex justify-between pt-4">
+                  
+
+                    <button type="button" onclick="showResult()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg transform active:scale-95">Submit Assessment ✔</button>
+                </div>
+            </section>
+
+        </div>
+
+        <section id="resultPage" class="hidden fade-in text-center mt-6 w-full">
+            <div class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl mx-auto">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-green-100 text-green-600 rounded-full mb-6 shadow-sm">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">Assessment Complete!</h2>
+                <h3 class="text-lg text-gray-500 mb-8 font-medium">Your answers have been recorded.</h3>
+                
+                <div id="result" class="text-2xl font-bold bg-blue-50 text-blue-900 py-6 px-10 rounded-2xl inline-block mb-10 shadow-inner border border-blue-100">
+                </div>
+                
+ 
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwlzlUXnbwo3hHDjD4Hcc_LwcewPMQNbEZVMxNiKF04o1Nm5Urdwuu8dfOGFB2zi1bG/exec";
+        let userEmail = "";
+
+        function startQuiz() {
+            let emailInput = document.getElementById("email");
+            let email = emailInput.value.trim();
+
+            if (!email || !email.includes("@")) {
+                alert("⚠️ Please enter a valid student email address.");
+                emailInput.focus();
+                return;
+            }
+
+            userEmail = email;
+            document.getElementById("step-0").classList.add("hidden");
+            document.getElementById("step-1").classList.remove("hidden");
+            document.getElementById("progress-container").classList.remove("hidden");
+            updateProgress(1);
+
+            try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e) {}
+            try { if (window.MathJax && typeof MathJax.typesetPromise === 'function') { MathJax.typesetPromise(); } } catch(e) {}
+        }
+
+        function navigate(fromStep, toStep) {
+            document.getElementById(`step-${fromStep}`).classList.add("hidden");
+            document.getElementById(`step-${toStep}`).classList.remove("hidden");
+            updateProgress(toStep);
+            
+            try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e) {}
+            try { if (window.MathJax && typeof MathJax.typesetPromise === 'function') { MathJax.typesetPromise(); } } catch(e) {}
+        }
+
+        function updateProgress(step) {
+            document.getElementById("current-step").innerText = step;
+        }
+
+        // UX: Radio button click styling
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                let name = this.name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(inp => {
+                    let lbl = inp.closest('.opt-label');
+                    if (lbl) {
+                        lbl.classList.remove('bg-blue-50', 'border-blue-500', 'ring-2', 'ring-blue-500/50');
+                        lbl.classList.add('border-gray-200');
+                    }
+                });
+                let label = this.closest('.opt-label');
+                if (label) {
+                    label.classList.remove('border-gray-200');
+                    label.classList.add('bg-blue-50', 'border-blue-500', 'ring-2', 'ring-blue-500/50');
+                }
+            });
+        });
+
+        function showResult() {
+            const answers = {
+                p1q1:'a', p1q2:'b', p1q3:'b', p1q4:'b', p1q5:'c', p1q6:'b', p1q7:'a', p1q8:'a', p1q9:'a', p1q10:'d', p1q11:'c', p1q12:'a', p1q13:'a',
+                p2q1:'b', p2q2a:'a', p2q2b:'d', p2q3:'a', p2q4:'a', p2q5:'b', p2q6:'a',
+                p3q1:'d', p3q2:'a', p3q3:'c', p3q4:'b', p3q5:'a'
+            };
+
+            const actualAnswers = {
+                p1q1:'c', p1q2:'b', p1q3:'d', p1q4:'c', p1q5:'b', p1q6:'b', p1q7:'a', p1q8:'a', p1q9:'c', p1q10:'d', p1q11:'c', p1q12:'b', p1q13:'d',
+                p2q1:'b', p2q2a:'a', p2q2b:'d', p2q3:'a', p2q4:'a', p2q5:'b', p2q6:'a',
+                p3q1:'d', p3q2:'a', p3q3:'c', p3q4:'b', p3q5:'a'
+            }
+
+            let score = 0;
+            
+            // FIX: Changed data payload keys to start with uppercase letters ('Email' and 'Score')
+            let formData = { Email: userEmail };
+
+            for (let q in actualAnswers) {
+                let selected = document.querySelector(`input[name="${q}"]:checked`);
+                let options = document.querySelectorAll(`input[name="${q}"]`);
+
+                options.forEach(opt => {
+                    let label = opt.closest('.opt-label');
+                    if (!label) return;
+                    
+                    label.className = "opt-label block p-4 border rounded-xl mb-2 transition-all"; 
+                    
+                    if (opt.value === actualAnswers[q]) {
+                        label.classList.add("bg-green-50", "border-green-500", "text-green-900", "ring-2", "ring-green-500/50");
+                    }
+                    if (opt.checked && opt.value !== actualAnswers[q]) {
+                        label.classList.add("bg-red-50", "border-red-500", "text-red-900", "ring-2", "ring-red-500/50");
+                    }
+                });
+
+                formData[q] = selected ? selected.value : "";
+                if (selected && selected.value === actualAnswers[q]) {
+                    score++;
+                }
+            }
+
+            // FIX: Capitalized matching key string reference to line up correctly with sheet layouts
+            formData["Score"] = `${score}/9`;
+
+            // Submit to Google Sheet
+            fetch(scriptURL, {
+                method: "POST",
+                body: new URLSearchParams(formData)
+            }).catch(e => console.error('Error submitting form:', e));
+
+            document.getElementById("quiz-wrapper").classList.add("hidden");
+            document.getElementById("progress-container").classList.add("hidden");
+            document.getElementById("resultPage").classList.remove("hidden");
+
+            document.getElementById("result").innerHTML = 
+                "<span class='text-sm font-bold uppercase tracking-widest text-blue-400 block mb-2'>Student ID</span>" +
+                "<span class='text-lg text-gray-700 block mb-6'>" + userEmail + "</span>" +
+                "<span class='text-sm font-bold uppercase tracking-widest text-blue-400 block mb-1'>Final Score</span>" +
+                "<span class='text-5xl font-black text-blue-600 block'>" + score + "<span class='text-2xl text-blue-300'>/9</span></span>";
+                
+            try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e) {}
+        }
+    </script>
+</body>
+</html>

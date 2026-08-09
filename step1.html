@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3HDFFBT6S7');
+</script>
+
+<!-- Hotjar Tracking Code for myStatisticClass -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6404067,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rk0vdjy4eg");
+</script>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Participate Form - Algebra 101</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+    <style>
+        body {
+            background-color: rgb(3, 22, 39);
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+        }
+
+        .form-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: rgba(3, 22, 39, 0.95);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .google-login-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px dashed #4285F4;
+        }
+
+        label { font-weight: 500; color: #cbd5e0; }
+        .form-control { background-color: #1a202c; border: 1px solid #2d3748; color: white; }
+        .form-control:focus { background-color: #2d3748; color: white; border-color: #4299e1; }
+        
+        /* Highlighting the email auto-fill */
+        #email { border-left: 4px solid #4285F4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center mb-4">Participation Form</h2>
+            
+            <div class="google-login-section">
+                <p>Step 1: Sign in with Google to auto-fill your details</p>
+                <div id="g_id_onload"
+                     data-client_id="YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com"
+                     data-context="signin"
+                     data-ux_mode="popup"
+                     data-callback="handleCredentialResponse"
+                     data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+            </div>
+
+            <form id="submit-to-google-sheet">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Full Name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Auto-filled via Google):</label>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required readonly />
+                    <small class="text-info">The email is locked to your Google account for reward verification.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_number">Phone Number (TNG eWallet):</label>
+                    <input class="form-control" type="text" name="contact_number" id="contact_number" placeholder="01XXXXXXXX" required />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>University / Institution:</label>
+                        <input class="form-control" type="text" name="ucourse" required />
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Department/Faculty:</label>
+                        <input class="form-control" type="text" name="student_dept" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>IC / Passport Number:</label>
+                        <input class="form-control" type="text" name="student_ic" required />
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Participant Code ID:</label>
+                        <input class="form-control" type="text" name="student_age" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nationality:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nationality" id="malaysian" value="Malaysian" required>
+                        <label class="form-check-label" for="malaysian">Malaysian</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nationality" id="non_malaysian" value="Non_Malaysian">
+                        <label class="form-check-label" for="non_malaysian">Non-Malaysian</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Familiarity with Linear Equations & Matrices:</label>
+                    <select class="form-control" name="Q1" required>
+                        <option value="" disabled selected>Choose...</option>
+                        <option value="Never learned it before">Never learned it before</option>
+                        <option value="Currently learning">Currently learning</option>
+                        <option value="Completed it previously">Completed it previously</option>
+                        <option value="Self-studied">Self-studied</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you use AI tools for study?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="AI" value="yes" required>
+                        <label class="form-check-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="AI" value="no">
+                        <label class="form-check-label">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you use online learning for study?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="AI" value="yes" required>
+                        <label class="form-check-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="AI" value="no">
+                        <label class="form-check-label">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>If yes, how do AI and online learning help you in your studies?</label>
+                    <textarea class="form-control" name="message" rows="3"></textarea>
+                </div>
+
+                <hr style="border-color: rgba(255,255,255,0.1)">
+                
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="checkbox" id="age_check" required />
+                    <label class="form-check-label" for="age_check">I am over 18 years old</label>
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="checkbox" id="consent_check" required />
+                    <label class="form-check-label" for="consent_check">I agree to participate in this EduMath research and consent to the data usage terms.</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg mt-4">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 1. HANDLE GOOGLE LOGIN RESPONSE
+        function handleCredentialResponse(response) {
+            // Decode the JWT token to get user info
+            const responsePayload = parseJwt(response.credential);
+            
+            // Auto-fill the form
+            document.getElementById('name').value = responsePayload.name;
+            document.getElementById('email').value = responsePayload.email;
+            
+            swal("Authenticated!", "Welcome " + responsePayload.given_name + ". We've filled your name and email.", "success");
+        }
+
+        function parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            return JSON.parse(window.atob(base64));
+        }
+
+        // 2. HANDLE FORM SUBMISSION
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwFJDeIO4QrdEX5uOwBG_svlwaXE_xMNsGv5Wk-Ew84q3S6U0aFwhXrhajiq95PwnWi/exec";
+        const form = document.forms["submit-to-google-sheet"];
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            if(!document.getElementById('email').value) {
+                swal("Login Required", "Please sign in with Google first.", "warning");
+                return;
+            }
+
+            var formData = new FormData(form);
+            formData.append("over_18", document.getElementById("age_check").checked ? "Yes" : "No");
+            formData.append("consent", document.getElementById("consent_check").checked ? "Yes" : "No");
+
+            swal({ title: "Submitting...", text: "Please wait", allowOutsideClick: false });
+
+            fetch(scriptURL, { method: "POST", body: formData })
+                .then((response) => {
+                    swal("Success!", "Data recorded. Redirecting to your Learning Adventure...", "success");
+                    setTimeout(() => {
+                        window.location.href = "YOUR_NEXT_PAGE_URL.html"; // Change this to your Step 2 page
+                    }, 2500);
+                })
+                .catch((error) => {
+                    swal("Error", "Submission failed. Please try again.", "error");
+                });
+        });
+    </script>
+</body>
+</html>
