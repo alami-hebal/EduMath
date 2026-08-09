@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3HDFFBT6S7');
+</script>
+
+<!-- Hotjar Tracking Code for myStatisticClass -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6404067,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rk0vdjy4eg");
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Systems of Linear Equations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        MathJax = { 
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            startup: { typeset: true }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(5px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 lg:p-8">
+    <div class="max-w-5xl mx-auto space-y-10">
+        
+        <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-10 rounded-2xl shadow-lg relative overflow-hidden">
+            <div class="relative z-10">
+                <span class="bg-blue-900 text-blue-100 font-bold tracking-wider uppercase text-xs px-3 py-1 rounded-full">Module 1</span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold mt-4 mb-2">Systems of Linear Equations</h1>
+                <p class="text-lg text-blue-100 max-w-2xl">Dive into the geometric and algebraic foundations of linear equations, discover augmented matrices, and master the core techniques of solving linear systems.</p>
+            </div>
+            <div class="absolute right-[-20%] top-[-20%] opacity-10 text-9xl font-serif pointer-events-none select-none">
+                $\sum Ax=b$
+            </div>
+        </header>
+
+        <main class="space-y-10">
+            
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">1</span> What is a Linear Equation?
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">A linear equation in $n$ variables $x_{1}, x_{2}, \dots, x_{n}$ is an equation that can be written in the standard form:</p>
+                        <div class="bg-blue-50 p-4 rounded-xl text-center overflow-x-auto mb-4 border border-blue-100">
+                            <span class="text-lg font-semibold text-blue-900">$$a_{1}x_{1} + a_{2}x_{2} + \dots + a_{n}x_{n} = b$$</span>
+                        </div>
+                        <p class="text-gray-700 text-sm">Where $a_{1}, \dots, a_{n}$ and $b$ are constants (and the $a$'s are not all zero). Notice that linear equations <strong>never</strong> contain products of variables (like $xy$), roots, or powers other than $1$.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Examples vs. Non-Examples</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>$x + 3y = 7$ (Linear)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>$\frac{1}{2}x_1 - x_2 + 3x_3 = -1$ (Linear)</span>
+                            </li>
+                            <li class="flex items-start gap-2 mt-4">
+                                <span class="text-red-500 font-bold">✗</span>
+                                <span>$x_1 + 3x_2^{\color{red}2} = 4$ (Not linear - squared variable)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-500 font-bold">✗</span>
+                                <span>$3x + 2y - {\color{red}xy} = 5$ (Not linear - product of variables)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">The Three Types of Solutions</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Every system of linear equations has exactly zero, one, or infinitely many solutions. There are no other possibilities. Geometrically, in 2D or 3D, this translates to how lines or planes intersect.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl shadow-sm border border-red-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-red-500 text-white text-center py-4 font-bold tracking-widest uppercase">0 Solutions</div>
+                        <div class="p-6 text-center">
+                            <div class="text-5xl mb-4">⏸</div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">Inconsistent System</h3>
+                            <p class="text-gray-600 text-sm">The equations represent lines or planes that are <strong>parallel</strong> and distinct. They never cross, meaning no point satisfies all equations simultaneously.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-green-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-green-500 text-white text-center py-4 font-bold tracking-widest uppercase">1 Solution</div>
+                        <div class="p-6 text-center">
+                            <div class="text-5xl mb-4">✕</div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">Consistent & Unique</h3>
+                            <p class="text-gray-600 text-sm">The lines or planes intersect at exactly <strong>one single point</strong>. This point is the unique solution to the system.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-blue-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-blue-500 text-white text-center py-4 font-bold tracking-widest uppercase">∞ Solutions</div>
+                        <div class="p-6 text-center">
+                            <div class="text-5xl mb-4">⧉</div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">Consistent & Dependent</h3>
+                            <p class="text-gray-600 text-sm">The equations represent the <strong>exact same line</strong> or intersect along a common line/plane. Any point on that line is a valid solution.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">2</span> Augmented Matrices & Row Operations
+                </h2>
+                <p class="text-gray-700 mb-6">To solve large systems efficiently, we extract the coefficients and constants into an <strong>Augmented Matrix</strong>. We then use three <em>Elementary Row Operations</em> to simplify it: scaling a row, swapping rows, or adding a multiple of one row to another.</p>
+                
+                <div class="bg-slate-800 rounded-xl p-6 text-white shadow-inner">
+                    <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
+                        <h3 class="font-semibold text-blue-300">Interactive: Solving a 2x2 System</h3>
+                        <button onclick="nextMatrixStep()" class="bg-blue-500 hover:bg-blue-400 text-white px-5 py-2 rounded-full font-bold transition transform active:scale-95 text-sm">
+                            Next Step ➔
+                        </button>
+                    </div>
+                    
+                    <div id="matrix-visualizer" class="fade-in flex flex-col items-center justify-center min-h-[200px]">
+                        </div>
+                </div>
+            </section>
+
+            <section class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
+                <h2 class="text-2xl font-bold text-blue-900 mb-6">Recommended Video Lectures</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-lg group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Essence of Linear Algebra</h4>
+                            <p class="text-xs text-gray-500 mb-1">by 3Blue1Brown</p>
+                            <p class="text-sm text-gray-600">The best visual introduction to what matrices and linear systems actually represent geometrically.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=ZK3O402wf1c" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-lg group-hover:bg-green-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Linear Algebra - Lecture 1</h4>
+                            <p class="text-xs text-gray-500 mb-1">by MIT OpenCourseWare (Gilbert Strang)</p>
+                            <p class="text-sm text-gray-600">A legendary university-level lecture covering the geometry of linear equations (row picture vs. column picture).</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=A2EqAaE5FMM" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group md:col-span-2">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Solving Systems with Matrices</h4>
+                            <p class="text-xs text-gray-500 mb-1">by Khan Academy</p>
+                            <p class="text-sm text-gray-600">A highly practical, step-by-step walkthrough of turning equations into augmented matrices and applying row operations.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">?</span> Concept Check
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-800 mb-3">1. Which of the following equations is NOT a linear equation?</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button onclick="handleQuiz('q1', false, 'This is linear. It fits the standard form exactly.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">A) $4x_1 - 5x_2 = 10$</button>
+                            <button onclick="handleQuiz('q1', true, 'Correct! The square root on $x_1$ makes this a non-linear equation.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">B) $\sqrt{x_1} + 2x_2 = 1$</button>
+                            <button onclick="handleQuiz('q1', false, 'This is linear. $1/2$ is just a constant coefficient.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">C) $\frac{1}{2}x - y = 0$</button>
+                            <button onclick="handleQuiz('q1', false, 'This is linear. $\\pi$ is just a constant number.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">D) $\pi x - y = 7$</button>
+                        </div>
+                        <p id="q1-feedback" class="mt-3 text-sm font-semibold hidden"></p>
+                    </div>
+
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-800 mb-3">2. If an augmented matrix is reduced and the bottom row becomes <span class="font-mono bg-gray-200 px-1 rounded">[0 0 0 | 5]</span>, what does this mean?</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. A row of zeros equal to zero means infinitely many solutions, but here it equals 5.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">A) The system has infinitely many solutions.</button>
+                            <button onclick="handleQuiz('q2', true, 'Correct! This row translates to the equation $0x + 0y + 0z = 5$, which is impossible. The system is inconsistent.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">B) The system has no solution.</button>
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. You cannot determine a unique variable from 0=5.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">C) The system has exactly one solution.</button>
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. This row represents a specific mathematical impossibility.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">D) You made a calculation error.</button>
+                        </div>
+                        <p id="q2-feedback" class="mt-3 text-sm font-semibold hidden"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center py-6 text-gray-500 text-sm">
+            <p>&copy; 2026 Linear Algebra Learning Hub. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix Step Visualizer Logic
+        const matrixSteps = [
+            `
+            <div class="text-center fade-in w-full">
+                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Initial System</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="text-left bg-slate-700 p-4 rounded">
+                        $x - y = 1$<br>
+                        $2x + y = 6$
+                    </div>
+                    <div class="text-2xl text-slate-500">➔</div>
+                    <div class="text-xl bg-slate-900 p-4 rounded border border-slate-600">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 2 & 1 & 6 \\end{bmatrix}$$
+                    </div>
+                </div>
+            </div>
+            `,
+            `
+            <div class="text-center fade-in w-full">
+                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Add -2(Row 1) to Row 2</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 2 & 1 & 6 \\end{bmatrix}$$
+                    </div>
+                    <div class="text-2xl text-slate-500">➔</div>
+                    <div class="text-xl bg-slate-900 p-4 rounded border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ \\mathbf{0} & \\mathbf{3} & \\mathbf{4} \\end{bmatrix}$$
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-slate-400">We eliminated the $x$ from the second equation!</p>
+            </div>
+            `,
+            `
+            <div class="text-center fade-in w-full">
+                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Multiply Row 2 by 1/3</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & 3 & 4 \\end{bmatrix}$$
+                    </div>
+                    <div class="text-2xl text-slate-500">➔</div>
+                    <div class="text-xl bg-slate-900 p-4 rounded border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & \\mathbf{1} & \\mathbf{4/3} \\end{bmatrix}$$
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-slate-400">We created a leading 1 in the second row. (Row Echelon Form achieved)</p>
+            </div>
+            `,
+            `
+            <div class="text-center fade-in w-full">
+                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Add Row 2 to Row 1</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
+                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & 1 & 4/3 \\end{bmatrix}$$
+                    </div>
+                    <div class="text-2xl text-slate-500">➔</div>
+                    <div class="text-xl bg-slate-900 p-4 rounded border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                        $$\\begin{bmatrix} \\mathbf{1} & \\mathbf{0} & \\mathbf{7/3} \\\\ 0 & 1 & 4/3 \\end{bmatrix}$$
+                    </div>
+                </div>
+                <p class="mt-4 text-green-400 font-bold">Solved! $x = 7/3$ and $y = 4/3$. (Reduced Row Echelon Form)</p>
+            </div>
+            `
+        ];
+
+        let currentStep = 0;
+        const visualizerDiv = document.getElementById('matrix-visualizer');
+
+        function renderStep() {
+            visualizerDiv.innerHTML = matrixSteps[currentStep];
+            // Tell MathJax to re-render the math in this div
+            if (window.MathJax) {
+                MathJax.typesetPromise([visualizerDiv]).catch((err) => console.log(err.message));
+            }
+        }
+
+        function nextMatrixStep() {
+            currentStep = (currentStep + 1) % matrixSteps.length;
+            renderStep();
+        }
+
+        // Initialize first step
+        renderStep();
+
+        // Quiz Logic
+        function handleQuiz(qId, isCorrect, message) {
+            const feedbackEl = document.getElementById(qId + '-feedback');
+            feedbackEl.classList.remove('hidden');
+            feedbackEl.innerHTML = message;
+            
+            if (isCorrect) {
+                feedbackEl.className = "mt-3 text-sm font-semibold text-green-600 bg-green-50 p-3 rounded border border-green-200";
+            } else {
+                feedbackEl.className = "mt-3 text-sm font-semibold text-red-600 bg-red-50 p-3 rounded border border-red-200";
+            }
+            
+            // Re-render math if the message contains LaTeX
+            if (window.MathJax && message.includes('$')) {
+                MathJax.typesetPromise([feedbackEl]);
+            }
+        }
+    </script>
+</body>
+</html>
