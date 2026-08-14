@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
@@ -35,20 +35,19 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post-Test Form</title>
+    <title>Q&A</title>
 
 <link
 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-    
-    <style>
-   
+
+<style>
+
 body {
     background-color: rgb(3, 22, 39);
-    
-  }
+}
 
-  .form-container {
+.form-container {
     max-width: 800px;
     width: 70%;
     margin: 50px auto;
@@ -58,611 +57,780 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: rgb(3, 22, 39);
     color: #ffffff;
-    }
- 
-    .likert-table {
+}
+
+.likert-table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-  }
+}
 
-  .likert-table th,
-  .likert-table td {
+.likert-table th,
+.likert-table td {
     text-align: center;
     padding: 12px;
     vertical-align: middle;
-  }
+}
 
-  .likert-table th:first-child,
-  .likert-table td:first-child {
+.likert-table th:first-child,
+.likert-table td:first-child {
     text-align: left;
     width: 40%;
-  }
+}
 
-  .likert-table tr:nth-child(even) {
+.likert-table tr:nth-child(even) {
     background-color: #99b3c9;
-  }
+}
 
-  .likert-table thead th {
+.likert-table thead th {
     font-weight: 600;
-  }  
+}
 
+</style>
+</head>
 
-     </style>
-  </head>
+<body>
 
-
-  <body>
 <div class="container mt-4">
-<h5 class="mb-3" style="color: white;"> Please rate the following statements:</h5>
 
-        <form id="submit-to-google-sheet"> 
+<h5 class="mb-3" style="color: white;">
+Please rate the following statements:
+</h5>
 
-          <div class="form-group">
-            <label for="email" style="color: white;">Email:</label>
-            <input
-              class="form-control"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              required
-            />
-          </div><br>
+<form id="submit-to-google-sheet">
+
+<!-- Participant Code -->
 
 <div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Intrinsic Goal Orientation</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
+    <label for="email" style="color: white;">
+        Email Address:
+    </label>
 
-    <tbody>
-      <tr>
-        <td>I enjoy learning difficult topics that make me curious.</td>
-        <td><input type="radio" name="q1" value="1"></td>
-        <td><input type="radio" name="q1" value="2"></td>
-        <td><input type="radio" name="q1" value="3"></td>
-        <td><input type="radio" name="q1" value="4"></td>
-        <td><input type="radio" name="q1" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I feel satisfied when I fully understand the course material.</td>
-        <td><input type="radio" name="q2" value="1"></td>
-        <td><input type="radio" name="q2" value="2"></td>
-        <td><input type="radio" name="q2" value="3"></td>
-        <td><input type="radio" name="q2" value="4"></td>
-        <td><input type="radio" name="q2" value="5"></td>
-      </tr>
-    </tbody>
-</div>
- 
-<div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Task Value</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>I can use what I learn in Solving Linear Equation in other courses.</td>
-        <td><input type="radio" name="q5" value="1"></td>
-        <td><input type="radio" name="q5" value="2"></td>
-        <td><input type="radio" name="q5" value="3"></td>
-        <td><input type="radio" name="q5" value="4"></td>
-        <td><input type="radio" name="q5" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>Understanding Solving Linear Equation is important to me.</td>
-        <td><input type="radio" name="q6" value="1"></td>
-        <td><input type="radio" name="q6" value="2"></td>
-        <td><input type="radio" name="q6" value="3"></td>
-        <td><input type="radio" name="q6" value="4"></td>
-        <td><input type="radio" name="q6" value="5"></td>
-      </tr>
-
-
-    </tbody>
+    <input
+        class="form-control"
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Email"
+        required
+    />
 </div>
 
-<div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Self-efficacy for Learning</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>I believe I can do well in Solving Linear Equation despite its difficulty.</td>
-        <td><input type="radio" name="q11" value="1"></td>
-        <td><input type="radio" name="q11" value="2"></td>
-        <td><input type="radio" name="q11" value="3"></td>
-        <td><input type="radio" name="q11" value="4"></td>
-        <td><input type="radio" name="q11" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I believe I can master the knowledge taught in Solving Linear Equation.</td>
-        <td><input type="radio" name="q12" value="1"></td>
-        <td><input type="radio" name="q12" value="2"></td>
-        <td><input type="radio" name="q12" value="3"></td>
-        <td><input type="radio" name="q12" value="4"></td>
-        <td><input type="radio" name="q12" value="5"></td>
-      </tr>
+<br>
 
 
-    </tbody>
-</div><br>  
+<!-- ===================================================== -->
+<!-- ONLINE ACADEMIC SELF-EFFICACY -->
+<!-- ===================================================== -->
 
 <div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Test anxiety</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>During a Solving Linear Equation test, I worry about questions I cannot answer.</td>
-        <td><input type="radio" name="q19" value="1"></td>
-        <td><input type="radio" name="q19" value="2"></td>
-        <td><input type="radio" name="q19" value="3"></td>
-        <td><input type="radio" name="q19" value="4"></td>
-        <td><input type="radio" name="q19" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I have an uneasy, upset feeling when I take this practice.</td>
-        <td><input type="radio" name="q21" value="1"></td>
-        <td><input type="radio" name="q21" value="2"></td>
-        <td><input type="radio" name="q21" value="3"></td>
-        <td><input type="radio" name="q21" value="4"></td>
-        <td><input type="radio" name="q21" value="5"></td>
-      </tr>
-
-    </tbody>
-</div>
-
-<div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Boredom (while studying Solving Linear Equation)</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>I was bored.</td>
-        <td><input type="radio" name="q23" value="1"></td>
-        <td><input type="radio" name="q23" value="2"></td>
-        <td><input type="radio" name="q23" value="3"></td>
-        <td><input type="radio" name="q23" value="4"></td>
-        <td><input type="radio" name="q23" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I felt the course was fairly dull.</td>
-        <td><input type="radio" name="q24" value="1"></td>
-        <td><input type="radio" name="q24" value="2"></td>
-        <td><input type="radio" name="q24" value="3"></td>
-        <td><input type="radio" name="q24" value="4"></td>
-        <td><input type="radio" name="q24" value="5"></td>
-      </tr>
-
-    </tbody>
-</div>
-
-<div class="form-group">
-   <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Frustration (while studying Solving Linear Equation)</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>I felt as though I was wasting my time.</td>
-        <td><input type="radio" name="q28" value="1"></td>
-        <td><input type="radio" name="q28" value="2"></td>
-        <td><input type="radio" name="q28" value="3"></td>
-        <td><input type="radio" name="q28" value="4"></td>
-        <td><input type="radio" name="q28" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I feel irritated when studying Solving Linear Equation.</td>
-        <td><input type="radio" name="q29" value="1"></td>
-        <td><input type="radio" name="q29" value="2"></td>
-        <td><input type="radio" name="q29" value="3"></td>
-        <td><input type="radio" name="q29" value="4"></td>
-        <td><input type="radio" name="q29" value="5"></td>
-      </tr>
-
-      
-    </tbody>
-</div>
-
-<div class="form-group">
-  <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Metacognitive self-regulation</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>When something is difficult, I change the way I study it.</td>
-        <td><input type="radio" name="q32" value="1"></td>
-        <td><input type="radio" name="q32" value="2"></td>
-        <td><input type="radio" name="q32" value="3"></td>
-        <td><input type="radio" name="q32" value="4"></td>
-        <td><input type="radio" name="q32" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I ask myself questions to check whether I understand the material.</td>
-        <td><input type="radio" name="q33" value="1"></td>
-        <td><input type="radio" name="q33" value="2"></td>
-        <td><input type="radio" name="q33" value="3"></td>
-        <td><input type="radio" name="q33" value="4"></td>
-        <td><input type="radio" name="q33" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I look for additional study materials that help me understand difficult topics.</td>
-        <td><input type="radio" name="q34" value="1"></td>
-        <td><input type="radio" name="q34" value="2"></td>
-        <td><input type="radio" name="q34" value="3"></td>
-        <td><input type="radio" name="q34" value="4"></td>
-        <td><input type="radio" name="q34" value="5"></td>
-      </tr>
-
-
-    </tbody>
-</div>
-
-<div class="form-group">
- <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Critical Thinking</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>I question information I hear or read to decide whether it is convincing.</td>
-        <td><input type="radio" name="q44" value="1"></td>
-        <td><input type="radio" name="q44" value="2"></td>
-        <td><input type="radio" name="q44" value="3"></td>
-        <td><input type="radio" name="q44" value="4"></td>
-        <td><input type="radio" name="q44" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>I explore my own ideas related to what I am learning.</td>
-        <td><input type="radio" name="q45" value="1"></td>
-        <td><input type="radio" name="q45" value="2"></td>
-        <td><input type="radio" name="q45" value="3"></td>
-        <td><input type="radio" name="q45" value="4"></td>
-        <td><input type="radio" name="q45" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>When learning how to solve problems, I think about other possible methods.</td>
-        <td><input type="radio" name="q46" value="1"></td>
-        <td><input type="radio" name="q46" value="2"></td>
-        <td><input type="radio" name="q46" value="3"></td>
-        <td><input type="radio" name="q46" value="4"></td>
-        <td><input type="radio" name="q46" value="5"></td>
-      </tr>
-
-
-    </tbody>
-</div>
-
-<div class="form-group">
- <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Satisfaction</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>Overall, I was satisfied with this learning experience.</td>
-        <td><input type="radio" name="q49" value="1"></td>
-        <td><input type="radio" name="q49" value="2"></td>
-        <td><input type="radio" name="q49" value="3"></td>
-        <td><input type="radio" name="q49" value="4"></td>
-        <td><input type="radio" name="q49" value="5"></td>
-      </tr>
-
-      <tr>
-        <td>This learning experience met my needs as a learner.</td>
-        <td><input type="radio" name="q50" value="1"></td>
-        <td><input type="radio" name="q50" value="2"></td>
-        <td><input type="radio" name="q50" value="3"></td>
-        <td><input type="radio" name="q50" value="4"></td>
-        <td><input type="radio" name="q50" value="5"></td>
-      </tr>
-
-
-    </tbody>
-</div>
-
-
-<div class="form-group">
 <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Practice Quality</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>This platform is easy to use.</td>
-        <td><input type="radio" name="q72" value="1"></td>
-        <td><input type="radio" name="q72" value="2"></td>
-        <td><input type="radio" name="q72" value="3"></td>
-        <td><input type="radio" name="q72" value="4"></td>
-        <td><input type="radio" name="q72" value="5"></td>
-      </tr>
+<thead>
+<tr>
+    <th>Online Academic Self-efficacy</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
 
-      <tr>
-        <td>This platform is easy to learn Solving Linear Equation.</td>
-        <td><input type="radio" name="q73" value="1"></td>
-        <td><input type="radio" name="q73" value="2"></td>
-        <td><input type="radio" name="q73" value="3"></td>
-        <td><input type="radio" name="q73" value="4"></td>
-        <td><input type="radio" name="q73" value="5"></td>
-      </tr>
+<tbody>
 
+<tr>
+<td>I am confident that I will be able to master the content and assignments in this online class.</td>
+<td><input type="radio" name="q1" value="1" required></td>
+<td><input type="radio" name="q1" value="2"></td>
+<td><input type="radio" name="q1" value="3"></td>
+<td><input type="radio" name="q1" value="4"></td>
+<td><input type="radio" name="q1" value="5"></td>
+</tr>
 
-    </tbody>
+<tr>
+<td>I am confident in my ability to successfully persist in this online class, even if I find the content difficult.</td>
+<td><input type="radio" name="q2" value="1" required></td>
+<td><input type="radio" name="q2" value="2"></td>
+<td><input type="radio" name="q2" value="3"></td>
+<td><input type="radio" name="q2" value="4"></td>
+<td><input type="radio" name="q2" value="5"></td>
+</tr>
+
+<tr>
+<td>I am confident I can put in the effort required to get a high grade in this online class.</td>
+<td><input type="radio" name="q3" value="1" required></td>
+<td><input type="radio" name="q3" value="2"></td>
+<td><input type="radio" name="q3" value="3"></td>
+<td><input type="radio" name="q3" value="4"></td>
+<td><input type="radio" name="q3" value="5"></td>
+</tr>
+
+<tr>
+<td>I am confident that I can accurately work out what the task is requiring me to do.</td>
+<td><input type="radio" name="q4" value="1" required></td>
+<td><input type="radio" name="q4" value="2"></td>
+<td><input type="radio" name="q4" value="3"></td>
+<td><input type="radio" name="q4" value="4"></td>
+<td><input type="radio" name="q4" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE INTRINSIC MOTIVATION -->
+<!-- ===================================================== -->
 
 <div class="form-group">
+
 <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Information Quality</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>This platform information is presented in a useful format.</td>
-        <td><input type="radio" name="q77" value="1"></td>
-        <td><input type="radio" name="q77" value="2"></td>
-        <td><input type="radio" name="q77" value="3"></td>
-        <td><input type="radio" name="q77" value="4"></td>
-        <td><input type="radio" name="q77" value="5"></td>
-      </tr>
+<thead>
+<tr>
+    <th>Online Intrinsic Motivation</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
 
-      <tr>
-        <td>The information in this platform is easy to understand and access.</td>
-        <td><input type="radio" name="q78" value="1"></td>
-        <td><input type="radio" name="q78" value="2"></td>
-        <td><input type="radio" name="q78" value="3"></td>
-        <td><input type="radio" name="q78" value="4"></td>
-        <td><input type="radio" name="q78" value="5"></td>
-      </tr>
+<tbody>
 
+<tr>
+<td>I always find aspects of the content that arouse my curiosity.</td>
+<td><input type="radio" name="q5" value="1" required></td>
+<td><input type="radio" name="q5" value="2"></td>
+<td><input type="radio" name="q5" value="3"></td>
+<td><input type="radio" name="q5" value="4"></td>
+<td><input type="radio" name="q5" value="5"></td>
+</tr>
 
-    </tbody>
+<tr>
+<td>I love learning new things in this online class.</td>
+<td><input type="radio" name="q6" value="1" required></td>
+<td><input type="radio" name="q6" value="2"></td>
+<td><input type="radio" name="q6" value="3"></td>
+<td><input type="radio" name="q6" value="4"></td>
+<td><input type="radio" name="q6" value="5"></td>
+</tr>
+
+<tr>
+<td>I find studying for this online class enjoyable.</td>
+<td><input type="radio" name="q7" value="1" required></td>
+<td><input type="radio" name="q7" value="2"></td>
+<td><input type="radio" name="q7" value="3"></td>
+<td><input type="radio" name="q7" value="4"></td>
+<td><input type="radio" name="q7" value="5"></td>
+</tr>
+
+<tr>
+<td>I find it very satisfying when I learn new material in this online course.</td>
+<td><input type="radio" name="q8" value="1" required></td>
+<td><input type="radio" name="q8" value="2"></td>
+<td><input type="radio" name="q8" value="3"></td>
+<td><input type="radio" name="q8" value="4"></td>
+<td><input type="radio" name="q8" value="5"></td>
+</tr>
+
+<tr>
+<td>I get a sense of achievement when I learn new skills or information.</td>
+<td><input type="radio" name="q9" value="1" required></td>
+<td><input type="radio" name="q9" value="2"></td>
+<td><input type="radio" name="q9" value="3"></td>
+<td><input type="radio" name="q9" value="4"></td>
+<td><input type="radio" name="q9" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE EXTRINSIC MOTIVATION -->
+<!-- ===================================================== -->
 
 <div class="form-group">
+
 <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Service Quality</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>This platform practice is easy on navigation.</td>
-        <td><input type="radio" name="q83" value="1"></td>
-        <td><input type="radio" name="q83" value="2"></td>
-        <td><input type="radio" name="q83" value="3"></td>
-        <td><input type="radio" name="q83" value="4"></td>
-        <td><input type="radio" name="q83" value="5"></td>
-      </tr>
+<thead>
+<tr>
+    <th>Online Extrinsic Motivation</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
 
-      <tr>
-        <td>This platform practice is well organized.</td>
-        <td><input type="radio" name="q84" value="1"></td>
-        <td><input type="radio" name="q84" value="2"></td>
-        <td><input type="radio" name="q84" value="3"></td>
-        <td><input type="radio" name="q84" value="4"></td>
-        <td><input type="radio" name="q84" value="5"></td>
-      </tr>
+<tbody>
 
-      <tr>
-        <td>This platform practice is reliable.</td>
-        <td><input type="radio" name="q85" value="1"></td>
-        <td><input type="radio" name="q85" value="2"></td>
-        <td><input type="radio" name="q85" value="3"></td>
-        <td><input type="radio" name="q85" value="4"></td>
-        <td><input type="radio" name="q85" value="5"></td>
-      </tr>
+<tr>
+<td>I want to do well in this online course so I can show off to my friends and family.</td>
+<td><input type="radio" name="q10" value="1" required></td>
+<td><input type="radio" name="q10" value="2"></td>
+<td><input type="radio" name="q10" value="3"></td>
+<td><input type="radio" name="q10" value="4"></td>
+<td><input type="radio" name="q10" value="5"></td>
+</tr>
 
-    </tbody>
+<tr>
+<td>I want to do well because of others' real or perceived expectations of me.</td>
+<td><input type="radio" name="q11" value="1" required></td>
+<td><input type="radio" name="q11" value="2"></td>
+<td><input type="radio" name="q11" value="3"></td>
+<td><input type="radio" name="q11" value="4"></td>
+<td><input type="radio" name="q11" value="5"></td>
+</tr>
+
+<tr>
+<td>I want to get a better grade than others in my online class.</td>
+<td><input type="radio" name="q12" value="1" required></td>
+<td><input type="radio" name="q12" value="2"></td>
+<td><input type="radio" name="q12" value="3"></td>
+<td><input type="radio" name="q12" value="4"></td>
+<td><input type="radio" name="q12" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE NEGATIVE ACHIEVEMENT EMOTION -->
+<!-- ===================================================== -->
 
 <div class="form-group">
+
 <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>User Satisfaction</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>I am satisfied with this platform portal for e-learning.</td>
-        <td><input type="radio" name="q88" value="1"></td>
-        <td><input type="radio" name="q88" value="2"></td>
-        <td><input type="radio" name="q88" value="3"></td>
-        <td><input type="radio" name="q88" value="4"></td>
-        <td><input type="radio" name="q88" value="5"></td>
-      </tr>
+<thead>
+<tr>
+    <th>Online Negative Achievement Emotion</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
 
-      <tr>
-        <td>I will continue using this portal for pursuing other learning.</td>
-        <td><input type="radio" name="q89" value="1"></td>
-        <td><input type="radio" name="q89" value="2"></td>
-        <td><input type="radio" name="q89" value="3"></td>
-        <td><input type="radio" name="q89" value="4"></td>
-        <td><input type="radio" name="q89" value="5"></td>
-      </tr>
+<tbody>
 
-    </tbody>
+<tr>
+<td>I feel so helpless that I cannot dedicate all my effort to my online studies.</td>
+<td><input type="radio" name="q13" value="1" required></td>
+<td><input type="radio" name="q13" value="2"></td>
+<td><input type="radio" name="q13" value="3"></td>
+<td><input type="radio" name="q13" value="4"></td>
+<td><input type="radio" name="q13" value="5"></td>
+</tr>
+
+<tr>
+<td>I consider dropping out because I feel overwhelmed by my online studies.</td>
+<td><input type="radio" name="q14" value="1" required></td>
+<td><input type="radio" name="q14" value="2"></td>
+<td><input type="radio" name="q14" value="3"></td>
+<td><input type="radio" name="q14" value="4"></td>
+<td><input type="radio" name="q14" value="5"></td>
+</tr>
+
+<tr>
+<td>While studying, I want to distract myself to lower my anxiety level.</td>
+<td><input type="radio" name="q15" value="1" required></td>
+<td><input type="radio" name="q15" value="2"></td>
+<td><input type="radio" name="q15" value="3"></td>
+<td><input type="radio" name="q15" value="4"></td>
+<td><input type="radio" name="q15" value="5"></td>
+</tr>
+
+<tr>
+<td>I get so anxious that I don't even want to start studying online.</td>
+<td><input type="radio" name="q16" value="1" required></td>
+<td><input type="radio" name="q16" value="2"></td>
+<td><input type="radio" name="q16" value="3"></td>
+<td><input type="radio" name="q16" value="4"></td>
+<td><input type="radio" name="q16" value="5"></td>
+</tr>
+
+<tr>
+<td>When I have to study online, I start to feel bad.</td>
+<td><input type="radio" name="q17" value="1" required></td>
+<td><input type="radio" name="q17" value="2"></td>
+<td><input type="radio" name="q17" value="3"></td>
+<td><input type="radio" name="q17" value="4"></td>
+<td><input type="radio" name="q17" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE PLANNING AND TIME MANAGEMENT -->
+<!-- ===================================================== -->
 
 <div class="form-group">
+
 <table class="likert-table table table-bordered">
-    <thead>
-      <tr>
-        <th>Net Benefits</th>
-        <th>Strongly Disagree</th>
-        <th>Disagree</th>
-        <th>Neutral</th>
-        <th>Agree</th>
-        <th>Strongly Agree</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr>
-        <td>I believe this platform can improve students’ academic performance.</td>
-        <td><input type="radio" name="q91" value="1"></td>
-        <td><input type="radio" name="q91" value="2"></td>
-        <td><input type="radio" name="q91" value="3"></td>
-        <td><input type="radio" name="q91" value="4"></td>
-        <td><input type="radio" name="q91" value="5"></td>
-      </tr>
+<thead>
+<tr>
+    <th>Online Planning and Time Management</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
 
-      <tr>
-        <td>This platform helps me better understand how to solve linear equations.</td>
-        <td><input type="radio" name="q93" value="1"></td>
-        <td><input type="radio" name="q93" value="2"></td>
-        <td><input type="radio" name="q93" value="3"></td>
-        <td><input type="radio" name="q93" value="4"></td>
-        <td><input type="radio" name="q93" value="5"></td>
-      </tr>
-    </tbody>
+<tbody>
+
+<tr>
+<td>I set short-term (daily or weekly) goals.</td>
+<td><input type="radio" name="q18" value="1" required></td>
+<td><input type="radio" name="q18" value="2"></td>
+<td><input type="radio" name="q18" value="3"></td>
+<td><input type="radio" name="q18" value="4"></td>
+<td><input type="radio" name="q18" value="5"></td>
+</tr>
+
+<tr>
+<td>I set realistic deadlines for learning.</td>
+<td><input type="radio" name="q19" value="1" required></td>
+<td><input type="radio" name="q19" value="2"></td>
+<td><input type="radio" name="q19" value="3"></td>
+<td><input type="radio" name="q19" value="4"></td>
+<td><input type="radio" name="q19" value="5"></td>
+</tr>
+
+<tr>
+<td>I break larger goals into smaller actionable goals.</td>
+<td><input type="radio" name="q20" value="1" required></td>
+<td><input type="radio" name="q20" value="2"></td>
+<td><input type="radio" name="q20" value="3"></td>
+<td><input type="radio" name="q20" value="4"></td>
+<td><input type="radio" name="q20" value="5"></td>
+</tr>
+
+<tr>
+<td>I make a list of detailed actions that I need to complete.</td>
+<td><input type="radio" name="q21" value="1" required></td>
+<td><input type="radio" name="q21" value="2"></td>
+<td><input type="radio" name="q21" value="3"></td>
+<td><input type="radio" name="q21" value="4"></td>
+<td><input type="radio" name="q21" value="5"></td>
+</tr>
+
+<tr>
+<td>I plan out my schedule each week so I have the appropriate amount of time available for online study.</td>
+<td><input type="radio" name="q22" value="1" required></td>
+<td><input type="radio" name="q22" value="2"></td>
+<td><input type="radio" name="q22" value="3"></td>
+<td><input type="radio" name="q22" value="4"></td>
+<td><input type="radio" name="q22" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
 
-  </table>
-  <br> 
 
- 	<button type="submit" class="btn btn-primary btn-block">
-            Submit
-          </button><br><br>
-        </form>
+<!-- ===================================================== -->
+<!-- METACOGNITION -->
+<!-- ===================================================== -->
+
+<div class="form-group">
+
+<table class="likert-table table table-bordered">
+
+<thead>
+<tr>
+    <th>Online Metacognition</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>I think about what learning strategies have worked for me in the past when doing similar assignments or types of study.</td>
+<td><input type="radio" name="q23" value="1" required></td>
+<td><input type="radio" name="q23" value="2"></td>
+<td><input type="radio" name="q23" value="3"></td>
+<td><input type="radio" name="q23" value="4"></td>
+<td><input type="radio" name="q23" value="5"></td>
+</tr>
+
+<tr>
+<td>I spend time trying to interpret the task to ensure I understand accurately what I need to do.</td>
+<td><input type="radio" name="q24" value="1" required></td>
+<td><input type="radio" name="q24" value="2"></td>
+<td><input type="radio" name="q24" value="3"></td>
+<td><input type="radio" name="q24" value="4"></td>
+<td><input type="radio" name="q24" value="5"></td>
+</tr>
+
+<tr>
+<td>I usually self-assess my performance once I finish.</td>
+<td><input type="radio" name="q25" value="1" required></td>
+<td><input type="radio" name="q25" value="2"></td>
+<td><input type="radio" name="q25" value="3"></td>
+<td><input type="radio" name="q25" value="4"></td>
+<td><input type="radio" name="q25" value="5"></td>
+</tr>
+
+<tr>
+<td>I look over past feedback I have received and check that I have made improvements in my current learning.</td>
+<td><input type="radio" name="q26" value="1" required></td>
+<td><input type="radio" name="q26" value="2"></td>
+<td><input type="radio" name="q26" value="3"></td>
+<td><input type="radio" name="q26" value="4"></td>
+<td><input type="radio" name="q26" value="5"></td>
+</tr>
+
+<tr>
+<td>I think about how I might improve my work by evaluating it against the marking criteria provided by the teacher.</td>
+<td><input type="radio" name="q27" value="1" required></td>
+<td><input type="radio" name="q27" value="2"></td>
+<td><input type="radio" name="q27" value="3"></td>
+<td><input type="radio" name="q27" value="4"></td>
+<td><input type="radio" name="q27" value="5"></td>
+</tr>
+
+</tbody>
+</table>
 </div>
 
 
- <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbx1uGH0w5uaMGXwSdqd7jmVdKEZFtAI3GuDzodIgPIvGnNpUuLdYpbaHz9Vb15xfrZNVQ/exec";
+<!-- ===================================================== -->
+<!-- STUDY ENVIRONMENT -->
+<!-- ===================================================== -->
+
+<div class="form-group">
+
+<table class="likert-table table table-bordered">
+
+<thead>
+<tr>
+    <th>Online Study Environment</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>I am able to study for my online course without distraction.</td>
+<td><input type="radio" name="q28" value="1" required></td>
+<td><input type="radio" name="q28" value="2"></td>
+<td><input type="radio" name="q28" value="3"></td>
+<td><input type="radio" name="q28" value="4"></td>
+<td><input type="radio" name="q28" value="5"></td>
+</tr>
+
+<tr>
+<td>I have access to a quiet and distraction-free place to study.</td>
+<td><input type="radio" name="q29" value="1" required></td>
+<td><input type="radio" name="q29" value="2"></td>
+<td><input type="radio" name="q29" value="3"></td>
+<td><input type="radio" name="q29" value="4"></td>
+<td><input type="radio" name="q29" value="5"></td>
+</tr>
+
+<tr>
+<td>I know where I can study most efficiently for this online course.</td>
+<td><input type="radio" name="q30" value="1" required></td>
+<td><input type="radio" name="q30" value="2"></td>
+<td><input type="radio" name="q30" value="3"></td>
+<td><input type="radio" name="q30" value="4"></td>
+<td><input type="radio" name="q30" value="5"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE EFFORT REGULATION -->
+<!-- ===================================================== -->
+
+<div class="form-group">
+
+<table class="likert-table table table-bordered">
+
+<thead>
+<tr>
+    <th>Online Effort Regulation</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>I work hard in my online study, even when there are more interesting things to do.</td>
+<td><input type="radio" name="q31" value="1" required></td>
+<td><input type="radio" name="q31" value="2"></td>
+<td><input type="radio" name="q31" value="3"></td>
+<td><input type="radio" name="q31" value="4"></td>
+<td><input type="radio" name="q31" value="5"></td>
+</tr>
+
+<tr>
+<td>When my online study gets difficult, I remain committed to reaching my study goals.</td>
+<td><input type="radio" name="q32" value="1" required></td>
+<td><input type="radio" name="q32" value="2"></td>
+<td><input type="radio" name="q32" value="3"></td>
+<td><input type="radio" name="q32" value="4"></td>
+<td><input type="radio" name="q32" value="5"></td>
+</tr>
+
+<tr>
+<td>When my mind begins to wander during a learning session for this online course, I make a special effort to keep concentrating.</td>
+<td><input type="radio" name="q33" value="1" required></td>
+<td><input type="radio" name="q33" value="2"></td>
+<td><input type="radio" name="q33" value="3"></td>
+<td><input type="radio" name="q33" value="4"></td>
+<td><input type="radio" name="q33" value="5"></td>
+</tr>
+
+<tr>
+<td>No matter how I am feeling, I persevere with my online study.</td>
+<td><input type="radio" name="q34" value="1" required></td>
+<td><input type="radio" name="q34" value="2"></td>
+<td><input type="radio" name="q34" value="3"></td>
+<td><input type="radio" name="q34" value="4"></td>
+<td><input type="radio" name="q34" value="5"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE SOCIAL SUPPORT -->
+<!-- ===================================================== -->
+
+<div class="form-group">
+
+<table class="likert-table table table-bordered">
+
+<thead>
+<tr>
+    <th>Online Social Support</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>I try to help other students when they ask a question online that I can answer.</td>
+<td><input type="radio" name="q35" value="1" required></td>
+<td><input type="radio" name="q35" value="2"></td>
+<td><input type="radio" name="q35" value="3"></td>
+<td><input type="radio" name="q35" value="4"></td>
+<td><input type="radio" name="q35" value="5"></td>
+</tr>
+
+<tr>
+<td>I ask for help from knowledgeable others through online channels when I am not sure what to do in my online class.</td>
+<td><input type="radio" name="q36" value="1" required></td>
+<td><input type="radio" name="q36" value="2"></td>
+<td><input type="radio" name="q36" value="3"></td>
+<td><input type="radio" name="q36" value="4"></td>
+<td><input type="radio" name="q36" value="5"></td>
+</tr>
+
+<tr>
+<td>I ask the teacher and/or my peers to clarify information in my online course.</td>
+<td><input type="radio" name="q37" value="1" required></td>
+<td><input type="radio" name="q37" value="2"></td>
+<td><input type="radio" name="q37" value="3"></td>
+<td><input type="radio" name="q37" value="4"></td>
+<td><input type="radio" name="q37" value="5"></td>
+</tr>
+
+<tr>
+<td>When I have difficulties with my online class, I seek assistance from others through online means (discussion boards, social media, email, instant messaging, etc.).</td>
+<td><input type="radio" name="q38" value="1" required></td>
+<td><input type="radio" name="q38" value="2"></td>
+<td><input type="radio" name="q38" value="3"></td>
+<td><input type="radio" name="q38" value="4"></td>
+<td><input type="radio" name="q38" value="5"></td>
+</tr>
+
+<tr>
+<td>I use email, discussion boards, social media, etc., to connect with the teacher and other students when I need help.</td>
+<td><input type="radio" name="q39" value="1" required></td>
+<td><input type="radio" name="q39" value="2"></td>
+<td><input type="radio" name="q39" value="3"></td>
+<td><input type="radio" name="q39" value="4"></td>
+<td><input type="radio" name="q39" value="5"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ONLINE TASK STRATEGIES -->
+<!-- ===================================================== -->
+
+<div class="form-group">
+
+<table class="likert-table table table-bordered">
+
+<thead>
+<tr>
+    <th>Online Task Strategies</th>
+    <th>Strongly Disagree</th>
+    <th>Disagree</th>
+    <th>Neutral</th>
+    <th>Agree</th>
+    <th>Strongly Agree</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>When studying online, I create my own examples of the content to make it more meaningful.</td>
+<td><input type="radio" name="q40" value="1" required></td>
+<td><input type="radio" name="q40" value="2"></td>
+<td><input type="radio" name="q40" value="3"></td>
+<td><input type="radio" name="q40" value="4"></td>
+<td><input type="radio" name="q40" value="5"></td>
+</tr>
+
+<tr>
+<td>When studying online, I organise my thoughts by making summaries of what I am learning.</td>
+<td><input type="radio" name="q41" value="1" required></td>
+<td><input type="radio" name="q41" value="2"></td>
+<td><input type="radio" name="q41" value="3"></td>
+<td><input type="radio" name="q41" value="4"></td>
+<td><input type="radio" name="q41" value="5"></td>
+</tr>
+
+<tr>
+<td>When studying online, I try and relate the content to what I already know.</td>
+<td><input type="radio" name="q42" value="1" required></td>
+<td><input type="radio" name="q42" value="2"></td>
+<td><input type="radio" name="q42" value="3"></td>
+<td><input type="radio" name="q42" value="4"></td>
+<td><input type="radio" name="q42" value="5"></td>
+</tr>
+
+<tr>
+<td>When learning the online content, I try and develop my own ideas about it.</td>
+<td><input type="radio" name="q43" value="1" required></td>
+<td><input type="radio" name="q43" value="2"></td>
+<td><input type="radio" name="q43" value="3"></td>
+<td><input type="radio" name="q43" value="4"></td>
+<td><input type="radio" name="q43" value="5"></td>
+</tr>
+
+<tr>
+<td>I try and improve my understanding by doing additional work beyond the core content (e.g., doing extra problem-solving activities or extra readings).</td>
+<td><input type="radio" name="q44" value="1" required></td>
+<td><input type="radio" name="q44" value="2"></td>
+<td><input type="radio" name="q44" value="3"></td>
+<td><input type="radio" name="q44" value="4"></td>
+<td><input type="radio" name="q44" value="5"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+<br>
+
+<button type="submit" class="btn btn-primary btn-block">
+    Submit
+</button>
+
+<br><br>
+
+</form>
+</div>
+
+
+<script>
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbx1uGH0w5uaMGXwSdqd7jmVdKEZFtAI3GuDzodIgPIvGnNpUuLdYpbaHz9Vb15xfrZNVQ/exec";
 
 const form = document.getElementById("submit-to-google-sheet");
 
 form.addEventListener("submit", e => {
-  e.preventDefault();
 
-  fetch(scriptURL, { method: "POST", body: new FormData(form)})
-    .then(res => res.text())
-    .then(data => {
-      swal("Success", "Submitted successfully!", "success");
-      form.reset();
+    e.preventDefault();
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: new FormData(form)
     })
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        swal(
+            "Success",
+            "Submitted successfully!",
+            "success"
+        );
+
+        form.reset();
+
+    })
+
     .catch(error => {
-      swal("Error", "Submission failed!", "error");
+
+        swal(
+            "Error",
+            "Submission failed!",
+            "error"
+        );
+
     });
+
 });
+
 </script>
 
 </body>
 </html>
+
