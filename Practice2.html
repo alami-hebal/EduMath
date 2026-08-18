@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2: Matrix & Linear System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.MathJax = { 
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            startup: { typeset: true }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .math-scroll { overflow-x: auto; padding-bottom: 10px; }
+        
+        /* Custom radio button styling */
+        .opt-label { cursor: pointer; transition: all 0.2s ease; }
+        .opt-label input[type="radio"] { accent-color: #2563eb; width: 1.2rem; height: 1.2rem; margin-right: 0.5rem; }
+        .opt-label:hover { border-color: #3b82f6; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-700 text-white p-5 shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/20 p-2 rounded-lg backdrop-blur-sm hidden sm:block">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">The Algebra 101 <span class="text-blue-200">Learning Hub</span></h1>
+                    <p class="text-xs sm:text-sm text-blue-100 mt-0.5 opacity-90">Topic 2 Practice Assessment</p>
+                </div>
+            </div>
+            <div id="progress-container" class="hidden text-sm font-bold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full shadow-inner border border-white/10">
+                Step <span id="current-step">1</span> of 3
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full p-4 sm:p-6 lg:p-8 flex justify-center">
+        
+        <div class="w-full max-w-4xl" id="quiz-wrapper">
+
+            <section id="step-0" class="fade-in w-full">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                    
+                    <div class="bg-blue-50 border-b border-blue-100 p-8 sm:p-10 text-center">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-blue-900 tracking-tight">Practice Assessment 2</h2>
+                        <p class="text-blue-700 mt-3 font-medium text-lg">Matrix & Linear Systems</p>
+                    </div>
+
+                    <div class="p-8 sm:p-10 space-y-8">
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">14</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Questions</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">3</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Sections</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">MCQ</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Format</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                <span class="block text-2xl font-black text-blue-600">Auto</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1 block">Grading</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Topics Covered</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-gray-700 font-medium">
+                                    <div class="bg-green-100 text-green-600 p-1.5 rounded-md"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                                    Elementary Row Operations & Gaussian Elimination
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-medium">
+                                    <div class="bg-green-100 text-green-600 p-1.5 rounded-md"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                                    Elementary & Equivalent Matrices
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 font-medium">
+                                    <div class="bg-green-100 text-green-600 p-1.5 rounded-md"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                                    Methods of Solving Linear Systems
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <hr class="border-gray-200">
+
+                        <div class="max-w-md mx-auto pt-2">
+                            <label for="email" class="block text-center text-sm font-bold text-gray-800 mb-3">Enter your Gmail to unlock the assessment:</label>
+                            
+                            <input type="email" id="email" name="email" placeholder="student@gmail.com" 
+                                onkeydown="if(event.key === 'Enter'){ startQuiz(); }"
+                                class="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 transition shadow-sm mb-4 text-center text-lg placeholder-gray-400 outline-none">
+  
+                            <button type="button" onclick="startQuiz()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition shadow-lg transform active:scale-95 text-lg flex justify-center items-center gap-2">
+                                Begin Practice Assessment <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="step-1" class="hidden fade-in space-y-6 w-full">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-900">Part 1 & 2: Elementary Row Operations & Gauss Elimination</h3>
+                    <p class="text-blue-700 text-sm mt-1">Questions 1-5</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">1. Apply the elementary row operation $R_1 \leftrightarrow R_2$ to the matrix:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $$ A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix} $$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q1" value="a"><br>$$ A(R_1 \leftrightarrow R_2) = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q1" value="b"><br>$$ A(R_1 \leftrightarrow R_2) = \begin{bmatrix} 4 & 3 \\ 2 & 5 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q1" value="c"><br>$$ A(R_1 \leftrightarrow R_2) = \begin{bmatrix} 4 & 5 \\ 2 & 3 \end{bmatrix} $$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">2. Apply the scalar row operation $2 \cdot R_1$ to matrix B:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $$ B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} $$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q2" value="a"><br>$$ B(2 \cdot R_1) = \begin{bmatrix} 2 & 4 \\ 3 & 4 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q2" value="b"><br>$$ B(2 \cdot R_1) = \begin{bmatrix} 1 & 2 \\ 6 & 8 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q2" value="c"><br>$$ B(2 \cdot R_1) = \begin{bmatrix} 2 & 2 \\ 3 & 4 \end{bmatrix} $$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">3. Apply the row replacement operation $R_2 - 2 \cdot R_1$ to matrix C:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $$ C = \begin{bmatrix} 3 & 5 \\ 1 & 2 \end{bmatrix} $$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q3" value="a"><br>$$ C(R_2 - 2R_1) = \begin{bmatrix} 3 & 5 \\ -1 & -3 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q3" value="b"><br>$$ C(R_2 - 2R_1) = \begin{bmatrix} 3 & 5 \\ -5 & -8 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q3" value="c"><br>$$ C(R_2 - 2R_1) = \begin{bmatrix} 3 & 5 \\ 1 & 2 \end{bmatrix} $$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">4. Solve the system of equations using Gauss or Gauss-Jordan Elimination:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $2x + y - z = 8$ <br> $-3x - y + 2z = -11$ <br> $-2x + y + 2z = -3$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q4" value="a">$(x=2, y=1, z=1)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q4" value="b">$(x=2, y=1, z=3)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q4" value="c">$(x=1, y=2, z=1)$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">5. Solve the system of equations:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $3x - y = 9$ <br> $2x + y = 4$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q5" value="a">$(x=3, y=0)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q5" value="b">$(x=3, y=2)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q5" value="c">$(x=2, y=1)$</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-4">
+                    <button type="button" onclick="navigate(1, 2)" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">Next: Step 2 ➔</button>
+                </div>
+            </section>
+
+
+            <section id="step-2" class="hidden fade-in space-y-6 w-full">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-900">Part 3 & 4: Elementary Matrices & Equivalent Matrices</h3>
+                    <p class="text-blue-700 text-sm mt-1">Questions 6-10</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">6. Determine the inverse of the elementary matrix E given by the row operation $R_2 \leftrightarrow R_3$:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $$ E = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix} $$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q6" value="a"><br>$$ E^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q6" value="b"><br>$$ E^{-1} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix} $$</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q6" value="c"><br>$$ E^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} $$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">7. Solve by using row-reducing the augmented matrix:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $x + 2y = 8$ <br> $3x + 4y = 18$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q7" value="a">$(x=-2, y=3)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q7" value="b">$(x=4, y=2)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q7" value="c">$(x=6, y=1)$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">8. Use row reduction to determine whether the system has a solution or not:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $x + y = 2$ <br> $2x + 2y = 5$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q8" value="a">Unique solution</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q8" value="b">Infinite</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q8" value="c">No solution</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">9. Solve the system in parametric form:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $x + 2y + z = 4$ <br> $2x + 4y + 2z = 8$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q9" value="a">$x = 4 - 2s - t, y = s, z = t$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q9" value="b">$x = 4 + 2s + t, y = s, z = t$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q9" value="c">$x = 4 - 2s - t, y = 2s, z = t$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">10. Determine whether the following two augmented matrices represent equivalent systems:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $$ M_1 = \begin{bmatrix} 1 & 2 & | & 5 \\ 0 & 1 & | & 3 \end{bmatrix} \quad M_2 = \begin{bmatrix} 1 & 0 & | & -1 \\ 0 & 1 & | & 3 \end{bmatrix} $$
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q10" value="a"><br>Yes</label>
+                            <label class="opt-label block p-4 border rounded-xl text-center"><input type="radio" name="q10" value="b"><br>No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between pt-4">
+                    <button type="button" onclick="navigate(2, 1)" class="bg-white border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-3 px-8 rounded-xl transition shadow-sm">➔ Back</button>
+                    <button type="button" onclick="navigate(2, 3)" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">Next: Step 3 ➔</button>
+                </div>
+            </section>
+
+
+            <section id="step-3" class="hidden fade-in space-y-6 w-full">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-900">Part 5: Methods of Solving Linear Systems</h3>
+                    <p class="text-blue-700 text-sm mt-1">Questions 11-14</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">11. Solve using the substitution method:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $2x + y = 7$ <br> $3x - 2y = 4$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q11" value="a">$(x = 2, y = 3)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q11" value="b">$(x = 3, y = 1)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q11" value="c">$(x = 1, y = 5)$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">12. Solve using the elimination method:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $4x - 3y = 5$ <br> $2x + 3y = 1$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q12" value="a">$(x = 3, y = -2)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q12" value="b">$(x = 2, y = 1)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q12" value="c">$(x = 1, y = -1)$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">13. Solve using the graphing method:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $3x + 2y = 6$ <br> $-2x + y = 4$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q13" value="a">$(x = 2, y = 0)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q13" value="b">$(x = -2, y = 0)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q13" value="c">$(x = 0, y = 4)$</label>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">14. Solve using the matrix method:</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg math-scroll mb-4 text-center">
+                            $3x - 2y = 7$ <br> $2x + 3y = 4$
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q14" value="a">$(x = 2, y =  1)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q14" value="b">$(x = 1, y = -2)$</label>
+                            <label class="opt-label block p-4 border rounded-xl"><input type="radio" name="q14" value="c">$(x = 3, y = -1)$</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between pt-4">
+                    <button type="button" onclick="navigate(3, 2)" class="bg-white border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-3 px-8 rounded-xl transition shadow-sm">➔ Back</button>
+                    <button type="button" onclick="submitQuiz()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">Complete & Submit ➔</button>
+                </div>
+            </section>
+
+
+            <section id="step-results" class="hidden fade-in w-full">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 p-8 sm:p-10 text-center space-y-8">
+                    
+                    <div class="space-y-3">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600">
+                            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Assessment Complete!</h2>
+                        <p class="text-gray-500 font-medium">Your answers have been recorded.</p>
+                    </div>
+
+                    <div class="max-w-md mx-auto bg-gray-50 rounded-2xl border border-gray-100 p-6 space-y-4 text-left shadow-inner">
+                        <div>
+                            <span class="block text-xs uppercase tracking-wider font-bold text-gray-400">Student ID</span>
+                            <span id="display-student-id" class="text-lg font-semibold text-gray-800 break-all">nurulhramli@gmail.com</span>
+                        </div>
+                        <hr class="border-gray-200">
+                        <div>
+                            <span class="block text-xs uppercase tracking-wider font-bold text-gray-400">Final Score</span>
+                            <span id="display-final-score" class="text-3xl font-black text-blue-600">0/25</span>
+                        </div>
+                    </div>
+
+                    <div class="max-w-md mx-auto pt-2">
+                        <a href="https://sites.google.com/view/thealgebra101hub/practice/geogebra" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition shadow-lg transform active:scale-95 text-lg flex justify-center items-center gap-2">
+                            Continue to GeoGebra Practice ➔
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzUBUPISIyJ3RMo8iq4qYtUVNynY7jiqwKE4IZ4VPxYq57moADhaR7g9Al536mBpMWmHQ/exec";
+        const answerKey = {
+            q1: 'c', q2: 'a', q3: 'a', q4: 'b', q5: 'a',
+            q6: 'a', q7: 'a', q8: 'c', q9: 'a', q10: 'a',
+            q11: 'b', q12: 'c', q13: 'b', q14: 'b'
+        };
+
+        function startQuiz() {
+            const emailInput = document.getElementById('email');
+            if (!emailInput) return; 
+            
+            const emailValue = emailInput.value.trim();
+
+            if (!emailValue || !emailValue.includes('@')) {
+                alert('Please enter a valid student email address to access your exam profile.');
+                emailInput.focus();
+                return;
+            }
+
+            document.getElementById('step-0').classList.add('hidden');
+            document.getElementById('progress-container').classList.remove('hidden');
+            document.getElementById('step-1').classList.remove('hidden');
+            
+            updateProgressTracker(1);
+            triggerMathJaxReparse();
+        }
+
+        function navigate(currentStepIndex, targetStepIndex) {
+            document.getElementById(`step-${currentStepIndex}`).classList.add('hidden');
+            document.getElementById(`step-${targetStepIndex}`).classList.remove('hidden');
+            
+            updateProgressTracker(targetStepIndex);
+            triggerMathJaxReparse();
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateProgressTracker(stepNumber) {
+            document.getElementById('current-step').innerText = stepNumber;
+        }
+
+        function triggerMathJaxReparse() {
+            if (window.MathJax && typeof window.MathJax.typeset === 'function') {
+                window.MathJax.typeset();
+            }
+        }
+
+        function submitQuiz() {
+            const emailInput = document.getElementById('email');
+            const emailValue = emailInput ? emailInput.value.trim() : "student@university.edu";
+            
+            let correctCount = 0;
+            const totalQuestionsCount = Object.keys(answerKey).length;
+
+            // Create a payload object mapping exactly to your sheet header keys (Case-Sensitive)
+            let formData = {
+                Email: emailValue
+            };
+
+            for (const questionId in answerKey) {
+                const selectedInput = document.querySelector(`input[name="${questionId}"]:checked`);
+                const studentAnswer = selectedInput ? selectedInput.value : "";
+                
+                // Pack individual question answers (q1, q2, ... q14) into payload properties
+                formData[questionId] = studentAnswer;
+
+                if (selectedInput && selectedInput.value === answerKey[questionId]) {
+                    correctCount++;
+                }
+            }
+
+            const calculatedFinalScore = Math.round((correctCount / totalQuestionsCount) * 25);
+            formData["Score"] = `${calculatedFinalScore}/25`;
+
+            // NEW: Added the missing network payload transmission logic to your deployed App Script Web App
+            fetch(scriptURL, {
+                method: "POST",
+                body: new URLSearchParams(formData)
+            })
+            .then(response => console.log('Submission saved successfully!', response))
+            .catch(error => console.error('Network synchronization error:', error));
+
+            // Visual layout view toggles
+            document.getElementById('display-student-id').innerText = emailValue;
+            document.getElementById('display-final-score').innerText = `${calculatedFinalScore}/25`;
+
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('progress-container').classList.add('hidden');
+            document.getElementById('step-results').classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
