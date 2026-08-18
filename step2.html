@@ -51,232 +51,838 @@
 <!-- End Matomo Code -->
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- =========================================================
+     GOOGLE ANALYTICS
+========================================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
 
-    <title>YouTube Video + Viewer Recording</title>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-3HDFFBT6S7');
+</script>
 
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<!-- =========================================================
+     HOTJAR
+========================================================= -->
+<script>
+    (function(h,o,t,j,a,r){
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: rgb(3, 22, 39);
-            color: #222;
-        }
+        h.hj = h.hj || function(){
+            (h.hj.q = h.hj.q || []).push(arguments);
+        };
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
+        h._hjSettings = {
+            hjid: 6404067,
+            hjsv: 6
+        };
 
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
+        a = o.getElementsByTagName('head')[0];
 
-        .description {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-        }
+        r = o.createElement('script');
 
-        .consent-box {
-            background: #fff8e1;
-            border: 1px solid #f0c36d;
-            border-radius: 10px;
-            padding: 18px;
-            margin-bottom: 20px;
-        }
+        r.async = 1;
 
-        .consent-box strong {
-            display: block;
-            margin-bottom: 8px;
-        }
+        r.src =
+            t +
+            h._hjSettings.hjid +
+            j +
+            h._hjSettings.hjsv;
 
-        .consent-box label {
-            display: block;
-            margin-top: 12px;
-        }
+        a.appendChild(r);
+
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+
+
+<!-- =========================================================
+     MICROSOFT CLARITY
+========================================================= -->
+<script type="text/javascript">
+
+    (function(c,l,a,r,i,t,y){
+
+        c[a] = c[a] || function(){
+            (c[a].q = c[a].q || []).push(arguments);
+        };
+
+        t = l.createElement(r);
+
+        t.async = 1;
+
+        t.src =
+            "https://www.clarity.ms/tag/" + i;
+
+        y = l.getElementsByTagName(r)[0];
+
+        y.parentNode.insertBefore(t,y);
+
+    })(window, document, "clarity", "script", "rk0vdjy4eg");
+
+</script>
+
+
+<!-- =========================================================
+     MATOMO
+========================================================= -->
+<script>
+
+    var _paq = window._paq = window._paq || [];
+
+    _paq.push(['trackPageView']);
+
+    _paq.push(['enableLinkTracking']);
+
+    (function() {
+
+        var u =
+            "https://alami-hebal.matomo.cloud/";
+
+        _paq.push([
+            'setTrackerUrl',
+            u + 'matomo.php'
+        ]);
+
+        _paq.push([
+            'setSiteId',
+            '1'
+        ]);
+
+        var d = document;
+
+        var g = d.createElement('script');
+
+        var s = d.getElementsByTagName('script')[0];
+
+        g.async = true;
+
+        g.src =
+            'https://cdn.matomo.cloud/alami-hebal.matomo.cloud/matomo.js';
+
+        s.parentNode.insertBefore(g,s);
+
+    })();
+
+</script>
+
+
+<!-- =========================================================
+     BASIC HTML
+========================================================= -->
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Matrix Learning Material + Video + Viewer Recording
+</title>
+
+
+<!-- =========================================================
+     CSS
+========================================================= -->
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+
+        margin: 0;
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background:
+            rgb(3, 22, 39);
+
+        color: #222;
+
+    }
+
+
+    .container {
+
+        max-width: 1000px;
+
+        margin: 20px auto;
+
+        padding: 20px;
+
+    }
+
+
+    h1 {
+
+        text-align: center;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .description {
+
+        text-align: center;
+
+        color: #666;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    /* =====================================================
+       CONSENT
+    ===================================================== */
+
+    .consent-box {
+
+        background: #fff8e1;
+
+        border: 1px solid #f0c36d;
+
+        border-radius: 10px;
+
+        padding: 18px;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .consent-box strong {
+
+        display: block;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .consent-box label {
+
+        display: block;
+
+        margin-top: 12px;
+
+    }
+
+
+    /* =====================================================
+       PDF LEARNING MATERIAL
+    ===================================================== */
+
+    .notes-card {
+
+        background: white;
+
+        border-radius: 12px;
+
+        padding: 22px;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 4px 15px rgba(0,0,0,0.08);
+
+    }
+
+
+    .notes-card h2 {
+
+        margin-top: 0;
+
+        margin-bottom: 8px;
+
+        color: #1e3a8a;
+
+    }
+
+
+    .notes-description {
+
+        color: #666;
+
+        margin-bottom: 18px;
+
+        line-height: 1.6;
+
+    }
+
+
+    .notes-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .note-button {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: #2563eb;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 8px;
+
+        font-weight: bold;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .note-button:hover {
+
+        background: #1d4ed8;
+
+        transform: translateY(-2px);
+
+    }
+
+
+    .pdf-icon {
+
+        font-size: 20px;
+
+    }
+
+
+    /* =====================================================
+       MAIN GRID
+    ===================================================== */
+
+    .main-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            2fr 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .card {
+
+        background: white;
+
+        border-radius: 12px;
+
+        padding: 18px;
+
+        box-shadow:
+            0 4px 15px rgba(0,0,0,0.08);
+
+    }
+
+
+    /* =====================================================
+       VIDEO
+    ===================================================== */
+
+    .video-container {
+
+        position: relative;
+
+        width: 100%;
+
+        padding-bottom: 56.25%;
+
+        height: 0;
+
+        overflow: hidden;
+
+        border-radius: 10px;
+
+        background: #000;
+
+    }
+
+
+    .video-container iframe {
+
+        position: absolute;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        border: 0;
+
+    }
+
+
+    /* =====================================================
+       CAMERA
+    ===================================================== */
+
+    .camera-container {
+
+        position: relative;
+
+        background: #111;
+
+        border-radius: 10px;
+
+        overflow: hidden;
+
+    }
+
+
+    #cameraPreview {
+
+        width: 100%;
+
+        display: block;
+
+        background: #000;
+
+    }
+
+
+    .recording-indicator {
+
+        position: absolute;
+
+        top: 12px;
+
+        left: 12px;
+
+        background: #d60000;
+
+        color: white;
+
+        padding: 6px 10px;
+
+        border-radius: 20px;
+
+        font-size: 13px;
+
+        display: none;
+
+    }
+
+
+    .recording-indicator.active {
+
+        display: block;
+
+    }
+
+
+    /* =====================================================
+       CONTROLS
+    ===================================================== */
+
+    .controls {
+
+        margin-top: 15px;
+
+        display: flex;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    button {
+
+        border: none;
+
+        padding: 12px 18px;
+
+        border-radius: 7px;
+
+        cursor: pointer;
+
+        font-size: 15px;
+
+    }
+
+
+    #startButton {
+
+        background: #1976d2;
+
+        color: white;
+
+    }
+
+
+    #stopButton {
+
+        background: #d32f2f;
+
+        color: white;
+
+    }
+
+
+    #downloadButton {
+
+        background: #388e3c;
+
+        color: white;
+
+    }
+
+
+    button:disabled {
+
+        opacity: 0.5;
+
+        cursor: not-allowed;
+
+    }
+
+
+    /* =====================================================
+       STATUS
+    ===================================================== */
+
+    .status {
+
+        margin-top: 15px;
+
+        padding: 12px;
+
+        background: #f1f5f9;
+
+        border-radius: 7px;
+
+        font-size: 14px;
+
+    }
+
+
+    .timer {
+
+        font-size: 22px;
+
+        font-weight: bold;
+
+        margin-top: 12px;
+
+    }
+
+
+    /* =====================================================
+       PRIVACY
+    ===================================================== */
+
+    .privacy {
+
+        margin-top: 20px;
+
+        font-size: 13px;
+
+        color: #ddd;
+
+        line-height: 1.6;
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 800px) {
 
         .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+
+            grid-template-columns: 1fr;
+
         }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+        .notes-grid {
+
+            grid-template-columns: 1fr;
+
         }
 
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #000;
-        }
+    }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+</style>
 
-        .camera-container {
-            position: relative;
-            background: #111;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        #cameraPreview {
-            width: 100%;
-            display: block;
-            background: #000;
-        }
-
-        .recording-indicator {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #d60000;
-            color: white;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            display: none;
-        }
-
-        .recording-indicator.active {
-            display: block;
-        }
-
-        .controls {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            border: none;
-            padding: 12px 18px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        #startButton {
-            background: #1976d2;
-            color: white;
-        }
-
-        #stopButton {
-            background: #d32f2f;
-            color: white;
-        }
-
-        #downloadButton {
-            background: #388e3c;
-            color: white;
-        }
-
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .status {
-            margin-top: 15px;
-            padding: 12px;
-            background: #f1f5f9;
-            border-radius: 7px;
-            font-size: 14px;
-        }
-
-        .timer {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 12px;
-        }
-
-        .privacy {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 800px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <h1 style="color: white;">YouTube Video + Viewer Recording</h1>
+
+    <!-- =====================================================
+         PAGE TITLE
+    ===================================================== -->
+
+    <h1 style="color: white;">
+
+        Matrix Learning Materials
+
+    </h1>
 
 
-    <!-- Consent -->
-    <div class="consent-box">
+    <p
+        style="
+            color:white;
+            text-align:center;
+            margin-bottom:25px;
+        "
+    >
 
-        <strong>Recording Consent</strong>
+        Learning Notes, Video and Practice Recording
 
-        <div>
-            This activity requests permission to access your camera and microphone. If you provide permission, your camera and microphone will be recorded while you participate. </div><br>
+    </p>
 
 
-        <label>
-            <input type="checkbox" id="consentCheckbox">
-            I understand and agree to be recorded.
-        </label>
+    <!-- =====================================================
+         LEARNING NOTES
+    ===================================================== -->
+
+    <div class="notes-card">
+
+        <h2>
+            📚 Learning Materials
+        </h2>
+
+
+        <p class="notes-description">
+
+            Please download and read the learning materials
+            before completing the learning activity.
+
+            You can download each PDF note below.
+
+        </p>
+
+
+        <div class="notes-grid">
+
+
+            <!-- NOTE 2.1 -->
+
+            <a
+                href="Note2.1.pdf"
+                download="Note2.1.pdf"
+                class="note-button"
+            >
+
+                <span class="pdf-icon">
+                    📄
+                </span>
+
+                Download Note 2.1: Introduction to Matrices
+
+            </a>
+
+
+            <!-- NOTE 2.2 -->
+
+            <a
+                href="Note2.2.pdf"
+                download="Note2.2.pdf"
+                class="note-button"
+            >
+
+                <span class="pdf-icon">
+                    📄
+                </span>
+
+                Download Note 2.2: System of Linear Equation and the Gauss Jordan Method 
+
+            </a>
+
+
+            <!-- NOTE 2.3 -->
+
+            <a
+                href="Note2.3.pdf"
+                download="Note2.3.pdf"
+                class="note-button"
+            >
+
+                <span class="pdf-icon">
+                    📄
+                </span>
+
+                Download Note 2.3: System of Linear Equation - Special Cases
+
+            </a>
+
+
+            <!-- NOTE 2.4 -->
+
+            <a
+                href="Note2.4.pdf"
+                download="Note2.4.pdf"
+                class="note-button"
+            >
+
+                <span class="pdf-icon">
+                    📄
+                </span>
+
+                Download Note 2.4:Inverse Matrices
+
+            </a>
+
+
+        </div>
 
     </div>
 
-    <div class="main-grid">
 
-        <!-- YouTube -->
-        <div class="card">
+    <!-- =====================================================
+         CONSENT
+    ===================================================== -->
 
-            <h2>Video</h2>
+    <div class="consent-box">
 
-            <div class="video-container">
-
-                <!--VIDEO_ID with your YouTube video ID -->
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tHm3X_Ta_iE?si=pARX4eg9SdoJfers&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <strong>
+            Recording Consent
+        </strong>
 
 
-            </div>
+        <div>
+
+            This activity requests permission to access your
+            camera and microphone. If you provide permission,
+            your camera and microphone will be recorded while
+            you participate.
 
         </div>
 
 
-        <!-- Camera -->
+        <br>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="consentCheckbox"
+            >
+
+            I understand and agree to be recorded.
+
+        </label>
+
+    </div>
+
+
+    <!-- =====================================================
+         VIDEO + CAMERA
+    ===================================================== -->
+
+    <div class="main-grid">
+
+
+        <!-- =================================================
+             YOUTUBE VIDEO
+        ================================================= -->
+
         <div class="card">
 
-            <h2>Camera</h2>
+            <h2>
+                Video
+            </h2>
+
+
+ <div class="video-container" style="margin-bottom: 30px;">
+
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dlvd_A6I-Gc?si=G3HR9TD2TRog3NUo"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+
+<div class="video-container">
+
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/frqILDunV50?si=W3P3UT-m2cz7Nfk_"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+        </div>
+
+
+        <!-- =================================================
+             CAMERA
+        ================================================= -->
+
+        <div class="card">
+
+            <h2>
+                Camera
+            </h2>
+
 
             <div class="camera-container">
+
 
                 <video
                     id="cameraPreview"
@@ -285,419 +891,429 @@
                     playsinline>
                 </video>
 
+
                 <div
                     id="recordingIndicator"
-                    class="recording-indicator">
+                    class="recording-indicator"
+                >
+
                     ● RECORDING
+
                 </div>
 
+
             </div>
 
-            <div class="timer" id="timer">
+
+            <div
+                class="timer"
+                id="timer"
+            >
+
                 00:00
+
             </div>
+
 
             <div class="controls">
 
+
+                <!-- START -->
+
                 <button
                     id="startButton"
-                    disabled>
+                    disabled
+                >
+
                     Allow Camera & Microphone & Start
+
                 </button>
+
+
+                <!-- STOP -->
 
                 <button
                     id="stopButton"
-                    disabled>
+                    disabled
+                >
+
                     Stop Recording
+
                 </button>
+
+
+                <!-- DOWNLOAD RECORDING -->
 
                 <button
                     id="downloadButton"
-                    disabled>
+                    disabled
+                >
+
                     Download Recording
+
                 </button>
+
 
             </div>
 
+
             <div
                 class="status"
-                id="status">
+                id="status"
+            >
+
                 Please provide consent first.
+
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- =====================================================
+         PRIVACY
+    ===================================================== -->
+
     <div class="privacy">
 
-        <strong>Privacy notice:</strong>
+        <strong>
+            Privacy notice:
+        </strong>
 
-        Camera and microphone access is controlled by your browser.
-        Recording starts only after you provide consent and grant the
-        required browser permissions. The recording is stored temporarily
-        in your browser and is not automatically uploaded to a server by
+
+        Camera and microphone access is controlled by your
+        browser. Recording starts only after you provide
+        consent and grant the required browser permissions.
+
+        The recording is stored temporarily in your browser
+        and is not automatically uploaded to a server by
         this page.
 
     </div>
 
+
 </div>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
-    const consentCheckbox =
-        document.getElementById("consentCheckbox");
 
-    const startButton =
-        document.getElementById("startButton");
+/* ==========================================================
+   GET ELEMENTS
+========================================================== */
 
-    const stopButton =
-        document.getElementById("stopButton");
-
-    const downloadButton =
-        document.getElementById("downloadButton");
-
-    const cameraPreview =
-        document.getElementById("cameraPreview");
-
-    const statusBox =
-        document.getElementById("status");
-
-    const recordingIndicator =
-        document.getElementById("recordingIndicator");
-
-    const timerElement =
-        document.getElementById("timer");
-
-
-    let mediaStream = null;
-    let mediaRecorder = null;
-    let recordedChunks = [];
-
-    let timerInterval = null;
-    let recordingSeconds = 0;
-
-
-    /*
-     * Enable recording button only after consent.
-     */
-
-    consentCheckbox.addEventListener(
-        "change",
-        function () {
-
-            startButton.disabled =
-                !this.checked;
-
-            if (this.checked) {
-
-                statusBox.textContent =
-                    "Consent provided. Click the button to allow camera and microphone access.";
-
-            } else {
-
-                statusBox.textContent =
-                    "Please provide consent before recording.";
-
-            }
-
-        }
+const consentCheckbox =
+    document.getElementById(
+        "consentCheckbox"
     );
 
 
-    /*
-     * Start recording.
-     */
+const startButton =
+    document.getElementById(
+        "startButton"
+    );
 
-    startButton.addEventListener(
-        "click",
-        async function () {
 
-            if (!consentCheckbox.checked) {
+const stopButton =
+    document.getElementById(
+        "stopButton"
+    );
 
-                alert(
-                    "Please provide recording consent first."
-                );
 
-                return;
+const downloadButton =
+    document.getElementById(
+        "downloadButton"
+    );
+
+
+const cameraPreview =
+    document.getElementById(
+        "cameraPreview"
+    );
+
+
+const statusBox =
+    document.getElementById(
+        "status"
+    );
+
+
+const recordingIndicator =
+    document.getElementById(
+        "recordingIndicator"
+    );
+
+
+const timerElement =
+    document.getElementById(
+        "timer"
+    );
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+let mediaStream = null;
+
+let mediaRecorder = null;
+
+let recordedChunks = [];
+
+let timerInterval = null;
+
+let recordingSeconds = 0;
+
+let recordingURL = null;
+
+
+/* ==========================================================
+   CONSENT CHECKBOX
+========================================================== */
+
+consentCheckbox.addEventListener(
+    "change",
+    function () {
+
+
+        startButton.disabled =
+            !this.checked;
+
+
+        if (this.checked) {
+
+
+            statusBox.textContent =
+                "Consent provided. Click the button to allow camera and microphone access.";
+
+
+        } else {
+
+
+            statusBox.textContent =
+                "Please provide consent before recording.";
+
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   START RECORDING
+========================================================== */
+
+startButton.addEventListener(
+    "click",
+    async function () {
+
+
+        if (!consentCheckbox.checked) {
+
+
+            alert(
+                "Please provide recording consent first."
+            );
+
+
+            return;
+
+        }
+
+
+        try {
+
+
+            /* ----------------------------------------------
+               Request camera and microphone
+            ---------------------------------------------- */
+
+            mediaStream =
+                await navigator.mediaDevices.getUserMedia({
+
+                    video: true,
+
+                    audio: true
+
+                });
+
+
+            /* ----------------------------------------------
+               Show camera preview
+            ---------------------------------------------- */
+
+            cameraPreview.srcObject =
+                mediaStream;
+
+
+            /* ----------------------------------------------
+               Determine supported recording format
+            ---------------------------------------------- */
+
+            let mimeType =
+                "video/webm;codecs=vp9,opus";
+
+
+            if (
+                !MediaRecorder.isTypeSupported(
+                    mimeType
+                )
+            ) {
+
+
+                mimeType =
+                    "video/webm;codecs=vp8,opus";
+
+
             }
 
 
-            try {
-
-                /*
-                 * Request camera and microphone permission.
-                 */
-
-                mediaStream =
-                    await navigator.mediaDevices.getUserMedia({
-
-                        video: true,
-
-                        audio: true
-
-                    });
+            if (
+                !MediaRecorder.isTypeSupported(
+                    mimeType
+                )
+            ) {
 
 
-                /*
-                 * Show camera preview.
-                 */
-
-                cameraPreview.srcObject =
-                    mediaStream;
+                mimeType =
+                    "video/webm";
 
 
-                /*
-                 * Create MediaRecorder.
-                 */
+            }
 
-                const options = {
 
-                    mimeType:
-                        "video/webm;codecs=vp9,opus"
+            /* ----------------------------------------------
+               Create MediaRecorder
+            ---------------------------------------------- */
+
+            mediaRecorder =
+                new MediaRecorder(
+                    mediaStream,
+                    {
+                        mimeType: mimeType
+                    }
+                );
+
+
+            recordedChunks = [];
+
+
+            /* ----------------------------------------------
+               Store recording data
+            ---------------------------------------------- */
+
+            mediaRecorder.ondataavailable =
+                function(event) {
+
+
+                    if (
+                        event.data &&
+                        event.data.size > 0
+                    ) {
+
+
+                        recordedChunks.push(
+                            event.data
+                        );
+
+
+                    }
 
                 };
 
 
-                /*
-                 * Some browsers may not support
-                 * VP9/Opus combination.
-                 */
+            /* ----------------------------------------------
+               Recording stopped
+            ---------------------------------------------- */
 
-                if (
-                    !MediaRecorder.isTypeSupported(
-                        options.mimeType
-                    )
-                ) {
+            mediaRecorder.onstop =
+                function() {
 
-                    options.mimeType =
-                        "video/webm";
 
-                }
+                    const blob =
+                        new Blob(
+                            recordedChunks,
+                            {
+                                type: mimeType
+                            }
+                        );
 
 
-                mediaRecorder =
-                    new MediaRecorder(
-                        mediaStream,
-                        options
-                    );
+                    /* Release old URL */
 
+                    if (recordingURL) {
 
-                recordedChunks = [];
+                        URL.revokeObjectURL(
+                            recordingURL
+                        );
 
+                    }
 
-                mediaRecorder.ondataavailable =
-                    function (event) {
 
-                        if (event.data &&
-                            event.data.size > 0) {
+                    /* Create new URL */
 
-                            recordedChunks.push(
-                                event.data
-                            );
+                    recordingURL =
+                        URL.createObjectURL(
+                            blob
+                        );
 
-                        }
 
-                    };
+                    /* Enable download */
 
+                    downloadButton.disabled =
+                        false;
 
-                mediaRecorder.onstop =
-                    function () {
 
-                        const blob =
-                            new Blob(
-                                recordedChunks,
-                                {
-                                    type:
-                                        "video/webm"
-                                }
-                            );
+                    statusBox.textContent =
+                        "Recording completed. Click 'Download Recording' to save your video.";
 
 
-                        /*
-                         * Create downloadable recording.
-                         */
+                };
 
-                        const url =
-                            URL.createObjectURL(
-                                blob
-                            );
 
+            /* ----------------------------------------------
+               Start recording
+            ---------------------------------------------- */
 
-                        downloadButton.onclick =
-                            function () {
+            mediaRecorder.start(1000);
 
-                                const link =
-                                    document.createElement(
-                                        "a"
-                                    );
 
-                                link.href = url;
+            startButton.disabled =
+                true;
 
-                                link.download =
-                                    "viewer-recording-" +
-                                    Date.now() +
-                                    ".webm";
 
-                                document.body.appendChild(
-                                    link
-                                );
+            stopButton.disabled =
+                false;
 
-                                link.click();
 
-                                document.body.removeChild(
-                                    link
-                                );
+            downloadButton.disabled =
+                true;
 
-                            };
 
-
-                        downloadButton.disabled =
-                            false;
-
-
-                        statusBox.textContent =
-                            "Recording completed. You can download the recording.";
-
-                    };
-
-
-                /*
-                 * Start MediaRecorder.
-                 */
-
-                mediaRecorder.start(
-                    1000
-                );
-
-
-                startButton.disabled =
-                    true;
-
-                stopButton.disabled =
-                    false;
-
-                downloadButton.disabled =
-                    true;
-
-                recordingIndicator.classList.add(
-                    "active"
-                );
-
-
-                /*
-                 * Start timer.
-                 */
-
-                recordingSeconds = 0;
-
-                timerElement.textContent =
-                    "00:00";
-
-
-                timerInterval =
-                    setInterval(
-                        function () {
-
-                            recordingSeconds++;
-
-                            const minutes =
-                                Math.floor(
-                                    recordingSeconds / 60
-                                );
-
-                            const seconds =
-                                recordingSeconds % 60;
-
-
-                            timerElement.textContent =
-                                String(minutes).padStart(
-                                    2,
-                                    "0"
-                                ) +
-                                ":" +
-                                String(seconds).padStart(
-                                    2,
-                                    "0"
-                                );
-
-                        },
-                        1000
-                    );
-
-
-                statusBox.textContent =
-                    "Recording is active.";
-
-            }
-
-            catch (error) {
-
-                console.error(error);
-
-
-                statusBox.textContent =
-                    "Camera or microphone permission was denied or unavailable.";
-
-
-                alert(
-                    "Camera/microphone permission is required to record."
-                );
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Stop recording.
-     */
-
-    stopButton.addEventListener(
-        "click",
-        function () {
-
-            if (
-                mediaRecorder &&
-                mediaRecorder.state !== "inactive"
-            ) {
-
-                mediaRecorder.stop();
-
-            }
-
-
-            /*
-             * Stop camera and microphone.
-             */
-
-            if (mediaStream) {
-
-                mediaStream
-                    .getTracks()
-                    .forEach(
-                        function (track) {
-
-                            track.stop();
-
-                        }
-                    );
-
-            }
-
-
-            recordingIndicator.classList.remove(
+            recordingIndicator.classList.add(
                 "active"
             );
 
 
-            stopButton.disabled =
-                true;
+            statusBox.textContent =
+                "Recording is active.";
 
-            startButton.disabled =
-                true;
+
+            /* ----------------------------------------------
+               Timer
+            ---------------------------------------------- */
+
+            recordingSeconds = 0;
+
+
+            timerElement.textContent =
+                "00:00";
 
 
             clearInterval(
@@ -705,14 +1321,198 @@
             );
 
 
-            cameraPreview.srcObject =
-                null;
+            timerInterval =
+                setInterval(
+                    function() {
+
+
+                        recordingSeconds++;
+
+
+                        const minutes =
+                            Math.floor(
+                                recordingSeconds / 60
+                            );
+
+
+                        const seconds =
+                            recordingSeconds % 60;
+
+
+                        timerElement.textContent =
+                            String(minutes).padStart(
+                                2,
+                                "0"
+                            ) +
+                            ":" +
+                            String(seconds).padStart(
+                                2,
+                                "0"
+                            );
+
+
+                    },
+                    1000
+                );
+
 
         }
-    );
+
+
+        catch (error) {
+
+
+            console.error(
+                error
+            );
+
+
+            statusBox.textContent =
+                "Camera or microphone permission was denied or unavailable.";
+
+
+            alert(
+                "Camera/microphone permission is required to record."
+            );
+
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   STOP RECORDING
+========================================================== */
+
+stopButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (
+            mediaRecorder &&
+            mediaRecorder.state !==
+            "inactive"
+        ) {
+
+
+            mediaRecorder.stop();
+
+
+        }
+
+
+        /* ----------------------------------------------
+           Stop camera and microphone
+        ---------------------------------------------- */
+
+        if (mediaStream) {
+
+
+            mediaStream
+                .getTracks()
+                .forEach(
+                    function(track) {
+
+                        track.stop();
+
+                    }
+                );
+
+
+        }
+
+
+        recordingIndicator.classList.remove(
+            "active"
+        );
+
+
+        stopButton.disabled =
+            true;
+
+
+        startButton.disabled =
+            true;
+
+
+        clearInterval(
+            timerInterval
+        );
+
+
+        cameraPreview.srcObject =
+            null;
+
+
+    }
+);
+
+
+/* ==========================================================
+   DOWNLOAD RECORDING
+========================================================== */
+
+downloadButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (!recordingURL) {
+
+
+            alert(
+                "There is no recording available to download."
+            );
+
+
+            return;
+
+        }
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            recordingURL;
+
+
+        link.download =
+            "viewer-recording-" +
+            new Date()
+                .toISOString()
+                .replace(
+                    /[:.]/g,
+                    "-"
+                ) +
+            ".webm";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        document.body.removeChild(
+            link
+        );
+
+
+    }
+);
+
 
 </script>
 
+
 </body>
 </html>
-```
