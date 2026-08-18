@@ -99,15 +99,7 @@
         <div class="form-container">
             <h2 class="text-center mb-4">Participation Form</h2>
             
-            <div class="google-login-section">
-                <p>Step 1: Sign in with Google to auto-fill your details</p>
-                <div id="g_id_onload"
-                     data-client_id="YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com"
-                     data-context="signin"
-                     data-ux_mode="popup"
-                     data-callback="handleCredentialResponse"
-                     data-auto_prompt="false">
-                </div>
+
                 <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
             </div>
 
@@ -118,9 +110,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email (Auto-filled via Google):</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required readonly />
-                    <small class="text-info">The email is locked to your Google account for reward verification.</small>
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required />
+                    
                 </div>
 
                 <div class="form-group">
@@ -163,7 +155,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Familiarity with Linear Equations & Matrices:</label>
+                    <label>Familiarity with Matrices:</label>
                     <select class="form-control" name="Q1" required>
                         <option value="" disabled selected>Choose...</option>
                         <option value="Never learned it before">Never learned it before</option>
