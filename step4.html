@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,9 +49,11 @@
 </script>
 <!-- End Matomo Code -->
 
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: Systems of Linear Equations</title>
+    <title>Matrices & Matrix Operations</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         MathJax = { 
@@ -67,169 +68,176 @@
             from { opacity: 0; transform: translateY(5px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
+        .highlight-row { background-color: rgba(59, 130, 246, 0.2); border-radius: 4px; }
+        .highlight-col { background-color: rgba(34, 197, 94, 0.2); border-radius: 4px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 lg:p-8">
     <div class="max-w-5xl mx-auto space-y-10">
         
-        <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-10 rounded-2xl shadow-lg relative overflow-hidden">
+        <header class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white p-10 rounded-2xl shadow-lg relative overflow-hidden">
             <div class="relative z-10">
-                <span class="bg-blue-900 text-blue-100 font-bold tracking-wider uppercase text-xs px-3 py-1 rounded-full">Module 1</span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold mt-4 mb-2">Systems of Linear Equations</h1>
-                <p class="text-lg text-blue-100 max-w-2xl">Dive into the geometric and algebraic foundations of linear equations, discover augmented matrices, and master the core techniques of solving linear systems.</p>
+                <span class="bg-indigo-900 text-indigo-100 font-bold tracking-wider uppercase text-xs px-3 py-1 rounded-full">Study Note</span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold mt-4 mb-2">Matrices & Matrix Operations</h1>
+                <p class="text-lg text-indigo-100 max-w-2xl">Discover the arithmetic of matrices: dimensions, addition, scalar multiplication, the row-column rule for matrix multiplication, transposes, and the trace.</p>
             </div>
-            <div class="absolute right-[-20%] top-[-20%] opacity-10 text-9xl font-serif pointer-events-none select-none">
-                $\sum Ax=b$
+            <div class="absolute right-[-10%] top-[-10%] opacity-10 text-9xl font-serif pointer-events-none select-none">
+                $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$
             </div>
         </header>
 
         <main class="space-y-10">
             
             <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">1</span> What is a Linear Equation?
+                <h2 class="text-2xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg">1</span> Matrix Terminology
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <p class="mb-4 text-gray-700 leading-relaxed">A linear equation in $n$ variables $x_{1}, x_{2}, \dots, x_{n}$ is an equation that can be written in the standard form:</p>
-                        <div class="bg-blue-50 p-4 rounded-xl text-center overflow-x-auto mb-4 border border-blue-100">
-                            <span class="text-lg font-semibold text-blue-900">$$a_{1}x_{1} + a_{2}x_{2} + \dots + a_{n}x_{n} = b$$</span>
-                        </div>
-                        <p class="text-gray-700 text-sm">Where $a_{1}, \dots, a_{n}$ and $b$ are constants (and the $a$'s are not all zero). Notice that linear equations <strong>never</strong> contain products of variables (like $xy$), roots, or powers other than $1$.</p>
+                <p class="mb-4 text-gray-700 leading-relaxed">A matrix is a rectangular array of numbers. The numbers in the array are called the <strong>entries</strong> of the matrix. The size of a matrix is described in terms of the number of rows (horizontal) and columns (vertical) it contains, written as $m \times n$.</p>
+                <p class="mb-6 text-gray-700">The entry that occurs in row $i$ and column $j$ of a matrix $A$ is typically denoted by $a_{ij}$.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center hover:shadow-md transition">
+                        <p class="font-bold text-slate-700 mb-2">Column Vector</p>
+                        <p class="text-xs text-slate-500 mb-2">Size: $m \times 1$</p>
+                        <div class="text-sm">$$ \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{bmatrix} $$</div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Examples vs. Non-Examples</h4>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-start gap-2">
-                                <span class="text-green-500 font-bold">✓</span>
-                                <span>$x + 3y = 7$ (Linear)</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-green-500 font-bold">✓</span>
-                                <span>$\frac{1}{2}x_1 - x_2 + 3x_3 = -1$ (Linear)</span>
-                            </li>
-                            <li class="flex items-start gap-2 mt-4">
-                                <span class="text-red-500 font-bold">✗</span>
-                                <span>$x_1 + 3x_2^{\color{red}2} = 4$ (Not linear - squared variable)</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-red-500 font-bold">✗</span>
-                                <span>$3x + 2y - {\color{red}xy} = 5$ (Not linear - product of variables)</span>
-                            </li>
-                        </ul>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center hover:shadow-md transition">
+                        <p class="font-bold text-slate-700 mb-2">Row Vector</p>
+                        <p class="text-xs text-slate-500 mb-2">Size: $1 \times n$</p>
+                        <div class="text-sm overflow-x-auto">$$ \begin{bmatrix} a_1 & a_2 & \dots & a_n \end{bmatrix} $$</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center hover:shadow-md transition">
+                        <p class="font-bold text-slate-700 mb-2">Square Matrix</p>
+                        <p class="text-xs text-slate-500 mb-2">Size: $n \times n$</p>
+                        <div class="text-sm">$$ \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} $$</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center hover:shadow-md transition">
+                        <p class="font-bold text-slate-700 mb-2">Main Diagonal</p>
+                        <p class="text-xs text-slate-500 mb-2">Entries where $i = j$</p>
+                        <div class="text-sm">$$ \begin{bmatrix} \color{blue}{a_{11}} & a_{12} \\ a_{21} & \color{blue}{a_{22}} \end{bmatrix} $$</div>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">The Three Types of Solutions</h2>
-                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Every system of linear equations has exactly zero, one, or infinitely many solutions. There are no other possibilities. Geometrically, in 2D or 3D, this translates to how lines or planes intersect.</p>
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg">2</span> Basic Operations
+                </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-2xl shadow-sm border border-red-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
-                        <div class="bg-red-500 text-white text-center py-4 font-bold tracking-widest uppercase">0 Solutions</div>
-                        <div class="p-6 text-center">
-                            <div class="text-5xl mb-4">⏸</div>
-                            <h3 class="font-bold text-lg text-gray-800 mb-2">Inconsistent System</h3>
-                            <p class="text-gray-600 text-sm">The equations represent lines or planes that are <strong>parallel</strong> and distinct. They never cross, meaning no point satisfies all equations simultaneously.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="border-l-4 border-indigo-500 pl-5">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Addition & Subtraction</h3>
+                        <p class="text-gray-600 text-sm mb-3">If $A$ and $B$ are matrices of the <strong>same size</strong>, their sum $A+B$ (or difference $A-B$) is obtained by adding (or subtracting) the corresponding entries.</p>
+                        <div class="bg-indigo-50 p-3 rounded-lg text-sm text-center">
+                            $$ \begin{bmatrix} 2 & 1 \\ 3 & 4 \end{bmatrix} + \begin{bmatrix} 1 & -1 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 3 & 0 \\ 3 & 6 \end{bmatrix} $$
                         </div>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-sm border border-green-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
-                        <div class="bg-green-500 text-white text-center py-4 font-bold tracking-widest uppercase">1 Solution</div>
-                        <div class="p-6 text-center">
-                            <div class="text-5xl mb-4">✕</div>
-                            <h3 class="font-bold text-lg text-gray-800 mb-2">Consistent & Unique</h3>
-                            <p class="text-gray-600 text-sm">The lines or planes intersect at exactly <strong>one single point</strong>. This point is the unique solution to the system.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm border border-blue-100 overflow-hidden transform hover:-translate-y-1 transition duration-300">
-                        <div class="bg-blue-500 text-white text-center py-4 font-bold tracking-widest uppercase">∞ Solutions</div>
-                        <div class="p-6 text-center">
-                            <div class="text-5xl mb-4">⧉</div>
-                            <h3 class="font-bold text-lg text-gray-800 mb-2">Consistent & Dependent</h3>
-                            <p class="text-gray-600 text-sm">The equations represent the <strong>exact same line</strong> or intersect along a common line/plane. Any point on that line is a valid solution.</p>
+                    
+                    <div class="border-l-4 border-emerald-500 pl-5">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Scalar Multiplication</h3>
+                        <p class="text-gray-600 text-sm mb-3">If $A$ is any matrix and $c$ is a scalar (a real number), the product $cA$ is obtained by multiplying <strong>every entry</strong> of $A$ by $c$.</p>
+                        <div class="bg-emerald-50 p-3 rounded-lg text-sm text-center">
+                            $$ 3 \begin{bmatrix} 2 & 1 \\ 3 & -4 \end{bmatrix} = \begin{bmatrix} 6 & 3 \\ 9 & -12 \end{bmatrix} $$
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
-                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">2</span> Augmented Matrices & Row Operations
+                <h2 class="text-2xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg">3</span> Matrix Multiplication (Row-Column Rule)
                 </h2>
-                <p class="text-gray-700 mb-6">To solve large systems efficiently, we extract the coefficients and constants into an <strong>Augmented Matrix</strong>. We then use three <em>Elementary Row Operations</em> to simplify it: scaling a row, swapping rows, or adding a multiple of one row to another.</p>
-                
-                <div class="bg-slate-800 rounded-xl p-6 text-white shadow-inner">
+                <p class="text-gray-700 mb-4">Matrix multiplication is not as simple as multiplying corresponding entries. If $A$ is an $m \times r$ matrix and $B$ is an $r \times n$ matrix, the product $AB$ is an $m \times n$ matrix.</p>
+                <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-xl mb-6 text-sm flex items-start gap-3">
+                    <span class="text-xl">⚠️</span>
+                    <p><strong>Crucial Rule:</strong> The number of <em>columns</em> in the first matrix must equal the number of <em>rows</em> in the second matrix. The "inside" dimensions must match: $(m \times \mathbf{r}) \cdot (\mathbf{r} \times n) = (m \times n)$.</p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl p-6 text-white shadow-xl">
                     <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
-                        <h3 class="font-semibold text-blue-300">Interactive: Solving a 2x2 System</h3>
-                        <button onclick="nextMatrixStep()" class="bg-blue-500 hover:bg-blue-400 text-white px-5 py-2 rounded-full font-bold transition transform active:scale-95 text-sm">
+                        <h3 class="font-semibold text-indigo-300">Interactive: How to Multiply Matrices</h3>
+                        <button onclick="nextMatrixStep()" class="bg-indigo-500 hover:bg-indigo-400 text-white px-5 py-2 rounded-full font-bold transition transform active:scale-95 text-sm shadow-md">
                             Next Step ➔
                         </button>
                     </div>
                     
-                    <div id="matrix-visualizer" class="fade-in flex flex-col items-center justify-center min-h-[200px]">
+                    <div id="multiplication-visualizer" class="fade-in flex flex-col items-center justify-center min-h-[250px]">
                         </div>
-                </div>
-            </section>
-
-            <section class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
-                <h2 class="text-2xl font-bold text-blue-900 mb-6">Recommended Video Lectures</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
-                    <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group">
-                        <div class="bg-red-100 text-red-600 p-3 rounded-lg group-hover:bg-red-600 group-hover:text-white transition">▶</div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Essence of Linear Algebra</h4>
-                            <p class="text-xs text-gray-500 mb-1">by 3Blue1Brown</p>
-                            <p class="text-sm text-gray-600">The best visual introduction to what matrices and linear systems actually represent geometrically.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?v=ZK3O402wf1c" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group">
-                        <div class="bg-green-100 text-green-600 p-3 rounded-lg group-hover:bg-green-600 group-hover:text-white transition">▶</div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Linear Algebra - Lecture 1</h4>
-                            <p class="text-xs text-gray-500 mb-1">by MIT OpenCourseWare (Gilbert Strang)</p>
-                            <p class="text-sm text-gray-600">A legendary university-level lecture covering the geometry of linear equations (row picture vs. column picture).</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?v=A2EqAaE5FMM" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-100 flex items-start gap-4 transition group md:col-span-2">
-                        <div class="bg-blue-100 text-blue-600 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition">▶</div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Solving Systems with Matrices</h4>
-                            <p class="text-xs text-gray-500 mb-1">by Khan Academy</p>
-                            <p class="text-sm text-gray-600">A highly practical, step-by-step walkthrough of turning equations into augmented matrices and applying row operations.</p>
-                        </div>
-                    </a>
-
                 </div>
             </section>
 
             <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
-                    <span class="bg-blue-100 text-blue-700 p-2 rounded-lg">?</span> Concept Check
+                <h2 class="text-2xl font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg">4</span> Transpose & Trace
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">The Transpose ($A^T$)</h3>
+                        <p class="text-gray-600 text-sm mb-4">The transpose of an $m \times n$ matrix $A$ is the $n \times m$ matrix resulting from <strong>interchanging the rows and columns</strong> of $A$. Row 1 becomes Column 1, Row 2 becomes Column 2, etc.</p>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-center text-sm">
+                            $$ A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \implies A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix} $$
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">The Trace ($tr(A)$)</h3>
+                        <p class="text-gray-600 text-sm mb-4">If $A$ is a <strong>square matrix</strong>, the trace of $A$ is defined to be the <strong>sum of the entries on the main diagonal</strong>. It is undefined for non-square matrices.</p>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-center text-sm">
+                            $$ A = \begin{bmatrix} \mathbf{2} & -1 & 4 \\ 3 & \mathbf{5} & 0 \\ -5 & 8 & \mathbf{-3} \end{bmatrix} $$
+                            <p class="mt-2 font-semibold">$tr(A) = 2 + 5 + (-3) = 4$</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-6">Recommended Video Lectures</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <a href="https://www.youtube.com/watch?v=XkY2DOUCWMU" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-200 flex items-start gap-4 transition group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-lg group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Matrices as Linear Transformations</h4>
+                            <p class="text-xs text-gray-500 mb-1">by 3Blue1Brown</p>
+                            <p class="text-sm text-gray-600">A stunning visual explanation of how multiplying a vector by a matrix transforms space.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=FX4C-JpTFgY" target="_blank" class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md border border-gray-200 flex items-start gap-4 transition group">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-lg group-hover:bg-green-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Matrix Multiplication</h4>
+                            <p class="text-xs text-gray-500 mb-1">by MIT OpenCourseWare (Gilbert Strang)</p>
+                            <p class="text-sm text-gray-600">Learn the 5 different ways to multiply matrices from the master of linear algebra himself.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg">?</span> Concept Check
                 </h2>
                 
                 <div class="space-y-6">
                     <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
-                        <p class="font-bold text-gray-800 mb-3">1. Which of the following equations is NOT a linear equation?</p>
+                        <p class="font-bold text-gray-800 mb-3">1. Matrix $A$ has size $3 \times 4$. Matrix $B$ has size $4 \times 5$. What is the size of the product matrix $AB$?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <button onclick="handleQuiz('q1', false, 'This is linear. It fits the standard form exactly.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">A) $4x_1 - 5x_2 = 10$</button>
-                            <button onclick="handleQuiz('q1', true, 'Correct! The square root on $x_1$ makes this a non-linear equation.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">B) $\sqrt{x_1} + 2x_2 = 1$</button>
-                            <button onclick="handleQuiz('q1', false, 'This is linear. $1/2$ is just a constant coefficient.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">C) $\frac{1}{2}x - y = 0$</button>
-                            <button onclick="handleQuiz('q1', false, 'This is linear. $\\pi$ is just a constant number.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">D) $\pi x - y = 7$</button>
+                            <button onclick="handleQuiz('q1', false, 'Incorrect. The inside numbers (4 and 4) must match to allow multiplication, but the outside numbers give the final size.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">A) $4 \times 4$</button>
+                            <button onclick="handleQuiz('q1', true, 'Correct! The inside dimensions match, so the resulting matrix takes the outside dimensions: 3 rows by 5 columns.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">B) $3 \times 5$</button>
+                            <button onclick="handleQuiz('q1', false, 'Incorrect. You flipped the dimensions.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">C) $5 \times 3$</button>
+                            <button onclick="handleQuiz('q1', false, 'Incorrect. The product is defined because the number of columns in A matches the number of rows in B.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">D) Undefined</button>
                         </div>
                         <p id="q1-feedback" class="mt-3 text-sm font-semibold hidden"></p>
                     </div>
 
                     <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
-                        <p class="font-bold text-gray-800 mb-3">2. If an augmented matrix is reduced and the bottom row becomes <span class="font-mono bg-gray-200 px-1 rounded">[0 0 0 | 5]</span>, what does this mean?</p>
+                        <p class="font-bold text-gray-800 mb-3">2. If $C$ is a $2 \times 3$ matrix, what is the size of $C^T$ (C transpose)?</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <button onclick="handleQuiz('q2', false, 'Incorrect. A row of zeros equal to zero means infinitely many solutions, but here it equals 5.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">A) The system has infinitely many solutions.</button>
-                            <button onclick="handleQuiz('q2', true, 'Correct! This row translates to the equation $0x + 0y + 0z = 5$, which is impossible. The system is inconsistent.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">B) The system has no solution.</button>
-                            <button onclick="handleQuiz('q2', false, 'Incorrect. You cannot determine a unique variable from 0=5.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">C) The system has exactly one solution.</button>
-                            <button onclick="handleQuiz('q2', false, 'Incorrect. This row represents a specific mathematical impossibility.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-sm">D) You made a calculation error.</button>
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. Transposing a matrix swaps its dimensions.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">A) $2 \times 3$</button>
+                            <button onclick="handleQuiz('q2', true, 'Correct! Transposing a matrix swaps its rows and columns, turning a $2 \\times 3$ matrix into a $3 \\times 2$ matrix.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">B) $3 \times 2$</button>
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. A transpose does not square the matrix.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">C) $3 \times 3$</button>
+                            <button onclick="handleQuiz('q2', false, 'Incorrect. Every matrix can be transposed.')" class="text-left px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition text-sm">D) Undefined</button>
                         </div>
                         <p id="q2-feedback" class="mt-3 text-sm font-semibold hidden"></p>
                     </div>
@@ -243,88 +251,123 @@
     </div>
 
     <script>
-        // Matrix Step Visualizer Logic
-        const matrixSteps = [
+        // Matrix Multiplication Visualizer Logic
+        const multiSteps = [
             `
             <div class="text-center fade-in w-full">
-                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Initial System</p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                    <div class="text-left bg-slate-700 p-4 rounded">
-                        $x - y = 1$<br>
-                        $2x + y = 6$
+                <p class="text-indigo-300 mb-4 font-mono text-sm uppercase tracking-widest">Step 1: The Setup</p>
+                <p class="text-slate-400 text-sm mb-6">We are multiplying a $2 \\times 2$ matrix by a $2 \\times 2$ matrix.</p>
+                <div class="flex items-center justify-center gap-4 text-xl">
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix} $$
                     </div>
-                    <div class="text-2xl text-slate-500">➔</div>
-                    <div class="text-xl bg-slate-900 p-4 rounded border border-slate-600">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 2 & 1 & 6 \\end{bmatrix}$$
+                    <div class="text-slate-500">$\\times$</div>
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$=$</div>
+                    <div class="bg-slate-900 p-4 rounded border border-slate-700 min-w-[120px] min-h-[100px] flex items-center justify-center">
+                        <span class="text-slate-600 text-sm">Result Matrix</span>
                     </div>
                 </div>
             </div>
             `,
             `
             <div class="text-center fade-in w-full">
-                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Add -2(Row 1) to Row 2</p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 2 & 1 & 6 \\end{bmatrix}$$
+                <p class="text-indigo-300 mb-4 font-mono text-sm uppercase tracking-widest">Step 2: Top-Left Entry ($c_{11}$)</p>
+                <p class="text-slate-400 text-sm mb-6">Multiply <span class="text-blue-400">Row 1</span> by <span class="text-green-400">Column 1</span>: $(1 \\times 5) + (2 \\times 7) = 5 + 14 = 19$</p>
+                <div class="flex items-center justify-center gap-4 text-xl">
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} \\color{#60a5fa}{1} & \\color{#60a5fa}{2} \\\\ 3 & 4 \\end{bmatrix} $$
                     </div>
-                    <div class="text-2xl text-slate-500">➔</div>
-                    <div class="text-xl bg-slate-900 p-4 rounded border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ \\mathbf{0} & \\mathbf{3} & \\mathbf{4} \\end{bmatrix}$$
+                    <div class="text-slate-500">$\\times$</div>
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} \\color{#4ade80}{5} & 6 \\\\ \\color{#4ade80}{7} & 8 \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$=$</div>
+                    <div class="bg-slate-900 p-4 rounded border border-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                        $$ \\begin{bmatrix} \\mathbf{19} & \\cdot \\\\ \\cdot & \\cdot \\end{bmatrix} $$
                     </div>
                 </div>
-                <p class="mt-4 text-sm text-slate-400">We eliminated the $x$ from the second equation!</p>
             </div>
             `,
             `
             <div class="text-center fade-in w-full">
-                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Multiply Row 2 by 1/3</p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & 3 & 4 \\end{bmatrix}$$
+                <p class="text-indigo-300 mb-4 font-mono text-sm uppercase tracking-widest">Step 3: Top-Right Entry ($c_{12}$)</p>
+                <p class="text-slate-400 text-sm mb-6">Multiply <span class="text-blue-400">Row 1</span> by <span class="text-green-400">Column 2</span>: $(1 \\times 6) + (2 \\times 8) = 6 + 16 = 22$</p>
+                <div class="flex items-center justify-center gap-4 text-xl">
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} \\color{#60a5fa}{1} & \\color{#60a5fa}{2} \\\\ 3 & 4 \\end{bmatrix} $$
                     </div>
-                    <div class="text-2xl text-slate-500">➔</div>
-                    <div class="text-xl bg-slate-900 p-4 rounded border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & \\mathbf{1} & \\mathbf{4/3} \\end{bmatrix}$$
+                    <div class="text-slate-500">$\\times$</div>
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 5 & \\color{#4ade80}{6} \\\\ 7 & \\color{#4ade80}{8} \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$=$</div>
+                    <div class="bg-slate-900 p-4 rounded border border-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                        $$ \\begin{bmatrix} 19 & \\mathbf{22} \\\\ \\cdot & \\cdot \\end{bmatrix} $$
                     </div>
                 </div>
-                <p class="mt-4 text-sm text-slate-400">We created a leading 1 in the second row. (Row Echelon Form achieved)</p>
             </div>
             `,
             `
             <div class="text-center fade-in w-full">
-                <p class="text-blue-300 mb-4 font-mono text-sm uppercase tracking-widest">Operation: Add Row 2 to Row 1</p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-                    <div class="text-xl bg-slate-700 p-4 rounded opacity-50">
-                        $$\\begin{bmatrix} 1 & -1 & 1 \\\\ 0 & 1 & 4/3 \\end{bmatrix}$$
+                <p class="text-indigo-300 mb-4 font-mono text-sm uppercase tracking-widest">Step 4: Bottom-Left Entry ($c_{21}$)</p>
+                <p class="text-slate-400 text-sm mb-6">Multiply <span class="text-blue-400">Row 2</span> by <span class="text-green-400">Column 1</span>: $(3 \\times 5) + (4 \\times 7) = 15 + 28 = 43$</p>
+                <div class="flex items-center justify-center gap-4 text-xl">
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 1 & 2 \\\\ \\color{#60a5fa}{3} & \\color{#60a5fa}{4} \\end{bmatrix} $$
                     </div>
-                    <div class="text-2xl text-slate-500">➔</div>
-                    <div class="text-xl bg-slate-900 p-4 rounded border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
-                        $$\\begin{bmatrix} \\mathbf{1} & \\mathbf{0} & \\mathbf{7/3} \\\\ 0 & 1 & 4/3 \\end{bmatrix}$$
+                    <div class="text-slate-500">$\\times$</div>
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} \\color{#4ade80}{5} & 6 \\\\ \\color{#4ade80}{7} & 8 \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$=$</div>
+                    <div class="bg-slate-900 p-4 rounded border border-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                        $$ \\begin{bmatrix} 19 & 22 \\\\ \\mathbf{43} & \\cdot \\end{bmatrix} $$
                     </div>
                 </div>
-                <p class="mt-4 text-green-400 font-bold">Solved! $x = 7/3$ and $y = 4/3$. (Reduced Row Echelon Form)</p>
+            </div>
+            `,
+            `
+            <div class="text-center fade-in w-full">
+                <p class="text-indigo-300 mb-4 font-mono text-sm uppercase tracking-widest">Step 5: Bottom-Right Entry ($c_{22}$)</p>
+                <p class="text-slate-400 text-sm mb-6">Multiply <span class="text-blue-400">Row 2</span> by <span class="text-green-400">Column 2</span>: $(3 \\times 6) + (4 \\times 8) = 18 + 32 = 50$</p>
+                <div class="flex items-center justify-center gap-4 text-xl">
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 1 & 2 \\\\ \\color{#60a5fa}{3} & \\color{#60a5fa}{4} \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$\\times$</div>
+                    <div class="bg-slate-800 p-4 rounded border border-slate-600">
+                        $$ \\begin{bmatrix} 5 & \\color{#4ade80}{6} \\\\ 7 & \\color{#4ade80}{8} \\end{bmatrix} $$
+                    </div>
+                    <div class="text-slate-500">$=$</div>
+                    <div class="bg-slate-900 p-4 rounded border border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+                        $$ \\begin{bmatrix} 19 & 22 \\\\ 43 & \\mathbf{50} \\end{bmatrix} $$
+                    </div>
+                </div>
+                <p class="mt-4 text-green-400 font-bold">Multiplication Complete!</p>
             </div>
             `
         ];
 
-        let currentStep = 0;
-        const visualizerDiv = document.getElementById('matrix-visualizer');
+        let currentMultiStep = 0;
+        const multiDiv = document.getElementById('multiplication-visualizer');
 
-        function renderStep() {
-            visualizerDiv.innerHTML = matrixSteps[currentStep];
-            // Tell MathJax to re-render the math in this div
+        function renderMultiStep() {
+            multiDiv.innerHTML = multiSteps[currentMultiStep];
             if (window.MathJax) {
-                MathJax.typesetPromise([visualizerDiv]).catch((err) => console.log(err.message));
+                MathJax.typesetPromise([multiDiv]).catch((err) => console.log(err.message));
             }
         }
 
         function nextMatrixStep() {
-            currentStep = (currentStep + 1) % matrixSteps.length;
-            renderStep();
+            currentMultiStep = (currentMultiStep + 1) % multiSteps.length;
+            renderMultiStep();
         }
 
         // Initialize first step
-        renderStep();
+        renderMultiStep();
 
         // Quiz Logic
         function handleQuiz(qId, isCorrect, message) {
@@ -338,7 +381,6 @@
                 feedbackEl.className = "mt-3 text-sm font-semibold text-red-600 bg-red-50 p-3 rounded border border-red-200";
             }
             
-            // Re-render math if the message contains LaTeX
             if (window.MathJax && message.includes('$')) {
                 MathJax.typesetPromise([feedbackEl]);
             }
