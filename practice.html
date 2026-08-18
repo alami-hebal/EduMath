@@ -1,56 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HDFFBT6S7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3HDFFBT6S7');
-</script>
-
-<!-- Hotjar Tracking Code for myStatisticClass -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6404067,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-<!-- MS Clarity -->	
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rk0vdjy4eg");
-</script>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://alami-hebal.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://cdn.matomo.cloud/alami-hebal.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->    
-    
-    
-       
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice: Matrix & Linear System</title>
@@ -348,12 +298,13 @@
                             </label>
 
 
-                            <input type="email"
-                                   id="email"
-                                   name="email"
-                                   placeholder="student@gmail.com"
-                                   onkeydown="if(event.key === 'Enter'){ startQuiz(); }"
-                                   class="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 transition shadow-sm mb-4 text-center text-lg placeholder-gray-400 outline-none">
+       <input type="email"
+       id="email"
+       name="email"
+       placeholder="student@gmail.com"
+       required
+              onkeydown="if(event.key === 'Enter'){ startQuiz(); }"
+       class="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 transition shadow-sm mb-4 text-center text-lg placeholder-gray-400 outline-none">
 
 
                             <button type="button"
@@ -1404,6 +1355,12 @@ const questionTitles = {
 
 };
 
+/* ==========================================================
+   GOOGLE APPS SCRIPT URL
+========================================================== */
+
+const scriptURL =
+    "https://script.google.com/macros/s/AKfycbzxtsOWqHSv-_m6QsS7CWh0OSS_-tONWos9sQkI5dxctb-nvgpMpNL8rNQFSpTT1Com/exec";
 
 /* ==========================================================
    SUBMIT QUIZ
@@ -1414,12 +1371,8 @@ async function submitQuiz() {
     const submitButton =
         document.getElementById("submit-button");
 
-
-    /* Check unanswered questions */
-
     const unanswered =
         checkAllQuestionsAnswered();
-
 
     if (unanswered.length > 0) {
 
@@ -1433,9 +1386,6 @@ async function submitQuiz() {
 
     }
 
-
-    /* Prevent double submission */
-
     if (submitButton) {
 
         submitButton.disabled = true;
@@ -1445,31 +1395,33 @@ async function submitQuiz() {
 
     }
 
-
     const emailInput =
         document.getElementById("email");
-
 
     const emailValue =
         emailInput
             ? emailInput.value.trim()
             : "";
 
-
     let correctCount = 0;
-
 
     const totalQuestionsCount = 10;
 
-
     const formData = {
 
-        Email: emailValue
+        Timestamp: new Date().toISOString(),
+
+        Assessment:
+            "Practice: Matrix & Linear System",
+
+        email:emailValue
 
     };
 
 
-    /* Calculate score */
+    /* ======================================================
+       COLLECT ANSWERS
+    ====================================================== */
 
     for (const questionId in answerKey) {
 
@@ -1478,16 +1430,13 @@ async function submitQuiz() {
                 `input[name="${questionId}"]:checked`
             );
 
-
         const studentAnswer =
             selectedInput
                 ? selectedInput.value
                 : "";
 
-
         formData[questionId] =
             studentAnswer;
-
 
         if (
             studentAnswer ===
@@ -1501,7 +1450,9 @@ async function submitQuiz() {
     }
 
 
-    /* Calculate percentage */
+    /* ======================================================
+       CALCULATE SCORE
+    ====================================================== */
 
     const percentage =
         Math.round(
@@ -1510,19 +1461,15 @@ async function submitQuiz() {
             100
         );
 
-
-    /* Save score */
-
-    formData["Score"] =
+    formData.Score =
         `${correctCount}/10`;
 
-
-    formData["Percentage"] =
+    formData.Percentage =
         `${percentage}%`;
 
 
     /* ======================================================
-       SEND TO GOOGLE APPS SCRIPT
+       SEND DATA TO GOOGLE SHEETS
     ====================================================== */
 
     try {
@@ -1537,13 +1484,15 @@ async function submitQuiz() {
         );
 
         console.log(
-            "Quiz submission sent successfully."
+            "Quiz data submitted to Google Sheets."
         );
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(
-            "Submission error:",
+            "Google Sheets submission error:",
             error
         );
 
@@ -1559,12 +1508,10 @@ async function submitQuiz() {
         .innerText =
         emailValue;
 
-
     document
         .getElementById("display-final-score")
         .innerText =
         `${correctCount}/10`;
-
 
     document
         .getElementById("display-percentage")
@@ -1572,10 +1519,7 @@ async function submitQuiz() {
         `${percentage}%`;
 
 
-    /* Result message */
-
     let resultMessage;
-
 
     if (percentage >= 80) {
 
@@ -1598,48 +1542,32 @@ async function submitQuiz() {
 
     }
 
-
     document
         .getElementById("result-message")
         .innerText =
         resultMessage;
 
 
-    /* ======================================================
-       CREATE ANSWER REVIEW
-    ====================================================== */
-
     createAnswerReview();
 
-
-    /* Hide questions */
 
     document
         .getElementById("step-1")
         .classList.add("hidden");
 
-
     document
         .getElementById("step-2")
         .classList.add("hidden");
-
-
-    /* Hide progress */
 
     document
         .getElementById("progress-container")
         .classList.add("hidden");
 
-
-    /* Show result */
-
     document
         .getElementById("step-results")
         .classList.remove("hidden");
 
-
     triggerMathJaxReparse();
-
 
     window.scrollTo({
         top: 0,
